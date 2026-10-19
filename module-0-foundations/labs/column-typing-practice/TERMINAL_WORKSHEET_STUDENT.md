@@ -28,3 +28,10 @@ You've just joined a data team, and someone drops `data/energy_sample.csv` in yo
 ## Share Out
 
 Two questions, in this order. First: how did your group figure out whether every country reports every column? Different groups almost certainly took different routes to the same file — compare them before deciding which you'd reach for next time. Second: which collection concerns did your group flag, and which single data-quality question did you sharpen out of them? Put each group's question up where everyone can read it, then ask the class which ones a real analyst could actually go answer — and which ones sound serious but can't be checked.
+After our initial analysis, we identified the total number of columns in the dataset. We then reviewed each country and noticed that 2 countries, Nigeria and Kenya, had 2 commas with no data between them. Indicating to us that there were missing values. 
+
+ Why are Kenya and Nigeria the only countries with multiple fields of data missing? 
+What could be the possible reason why these fields are missing.
+Why does Nigeria have the lowest population?
+Is there some sort of correlation between these countries' low population and why they are missing fields of data
+
