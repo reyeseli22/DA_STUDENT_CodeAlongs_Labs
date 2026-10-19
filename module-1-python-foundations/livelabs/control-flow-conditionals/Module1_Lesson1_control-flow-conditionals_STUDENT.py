@@ -76,7 +76,7 @@ print('----- 4. While Loop, Live -----')
 count = 0
 while count <= 3:
     print (count)
-    count += 1
+    count += 1 #count = count + 1
 
 
 
