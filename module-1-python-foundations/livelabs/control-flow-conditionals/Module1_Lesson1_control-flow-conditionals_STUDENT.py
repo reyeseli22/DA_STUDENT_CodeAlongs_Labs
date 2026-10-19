@@ -97,7 +97,7 @@ print('----- 5. Loop and Conditional, Together -----')
 scores = [88, 92, 75, 100]
 for item in scores:
     if item >= 90:
-        print("great job")
+        print(item, "-great job")
     else:
-        print("keep practicing")
-        
+        print(item, "-keep practicing")
+
