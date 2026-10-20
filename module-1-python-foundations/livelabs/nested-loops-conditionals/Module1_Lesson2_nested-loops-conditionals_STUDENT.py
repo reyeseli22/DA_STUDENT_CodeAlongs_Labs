@@ -99,8 +99,9 @@ for item in transactions:
             print(item,"-valid")
         else:
             print(item,"-invalid quantity")
-    elif operation == "Remove":
-        print(item "-processing remove")
+    elif operation == "REMOVE":
+        print(item, "-processing remove")
+
 # PREDICT before you run: In the Putting It Together code, which check flags
 #                         "ADD -5" as invalid: operation == "ADD", amount > 0,
 #                         or operation == "REMOVE"?
