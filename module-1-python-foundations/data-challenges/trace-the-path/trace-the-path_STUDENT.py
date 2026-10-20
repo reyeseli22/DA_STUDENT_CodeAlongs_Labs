@@ -133,8 +133,8 @@ total = 0
 for shift in shifts:
     volunteer, day, hours = shifts.split(",")
     hours = int(hours)
-    total += hours:
-    print(day, volunteer "|running total -", total)
+    total += hours
+    print(day, volunteer, "|running total-", total)
     # TODO: add this shift's hours onto the running total. Mind the
     #       type: everything that came out of that split is a string.
     total += int(hours) # adds this shifts hours to running total
