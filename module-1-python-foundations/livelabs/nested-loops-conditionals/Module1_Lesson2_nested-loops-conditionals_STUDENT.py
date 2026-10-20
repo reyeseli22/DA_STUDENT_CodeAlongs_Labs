@@ -91,7 +91,16 @@ print('----- 3. Putting It Together: Loop + Nested Conditional -----')
 # operation and amount, then nest the ADD/quantity check
 # from the nested-conditional step inside the loop
 transactions = ["ADD 10", "REMOVE 3", "ADD -5"]
-
+for item in transactions:
+    operation,quantity = item.split()
+    quantity = int(quantity)
+    if operation == "ADD":
+        if quantity > 0:
+            print(item,"-valid")
+        else:
+            print(item,"-invalid quantity")
+    elif operation == "Remove":
+        print(item "-processing remove")
 # PREDICT before you run: In the Putting It Together code, which check flags
 #                         "ADD -5" as invalid: operation == "ADD", amount > 0,
 #                         or operation == "REMOVE"?
