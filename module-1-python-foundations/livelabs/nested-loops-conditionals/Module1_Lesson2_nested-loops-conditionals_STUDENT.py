@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 """Nested Loops & Conditionals
 Module 1: Python Foundations
 
@@ -60,12 +60,12 @@ print('----- 2. Nested Conditional, Live -----')
 # TODO: check operation first; if it's "ADD", nest a second
 # check confirming quantity is greater than 0
 operation = "ADD"
-quantity = -5, 0, 7, -2, 4, 8, -1
+quantity = -5
 
 
 #if the operation == "ADD" and if the quantity > 0 = valid add
 if operation == "ADD":
-    if quantity > 0:
+    if quantity >= 0:
         print("valid add")
     else:
         print("invalid quantity")
