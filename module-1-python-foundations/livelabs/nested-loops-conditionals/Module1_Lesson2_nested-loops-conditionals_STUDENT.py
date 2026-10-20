@@ -105,6 +105,6 @@ for item in transactions:
 # PREDICT before you run: In the Putting It Together code, which check flags
 #                         "ADD -5" as invalid: operation == "ADD", amount > 0,
 #                         or operation == "REMOVE"?
-# Your answer:
+# Your answer: amount > 0 flags "ADD -5" as an invalid operation
 #
 #
