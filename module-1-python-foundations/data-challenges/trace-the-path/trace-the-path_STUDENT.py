@@ -99,6 +99,7 @@ for shift in shifts:
         print("Long shift")
         long_shifts += 1 
 print("Total long shifts", long_shifts)
+        
         # TODO: this is the counting line. Move long_shifts on by one.
 
 
@@ -130,7 +131,10 @@ print("shifts of 4+ hours:", long_shifts)
 # Predicted Print Lines = 12
 total = 0
 for shift in shifts:
-    volunteer, day, hours = shift.split(",")
+    volunteer, day, hours = shifts.split(",")
+    hours = int(hours)
+    total += hours:
+    print(day, volunteer "|running total -", total)
     # TODO: add this shift's hours onto the running total. Mind the
     #       type: everything that came out of that split is a string.
     total += int(hours) # adds this shifts hours to running total
@@ -138,6 +142,7 @@ for shift in shifts:
     #       total so far. This printed line IS the tracing tool.
     print(day, volunteer, "| running total:", total)
     # prints running total after each shift ^
+
 
 print("total hours logged this week:", total)
 
