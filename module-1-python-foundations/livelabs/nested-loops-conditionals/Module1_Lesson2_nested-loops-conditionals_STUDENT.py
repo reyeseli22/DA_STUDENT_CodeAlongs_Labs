@@ -62,6 +62,19 @@ print('----- 2. Nested Conditional, Live -----')
 operation = "ADD"
 quantity = -5
 
+
+#if the operation == "ADD" and if the quantity > 0 = valid add
+if operation == "ADD":
+    if quantity > 0:
+        print("valid add")
+    else:
+        print("invalid quantity")
+
+
+
+#if FALSE print "invalid quantity"
+#if operation value =/= "ADD" print "processing remove":
+
 # DISCUSS: Suppose the inner quantity check in the Nested Conditional code
 #          never seems to run. What should you trace first? Try it: set
 #          operation to "SEARCH" and run.
