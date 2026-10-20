@@ -92,16 +92,19 @@ with open("volunteer_shifts.txt") as f:
 
 long_shifts = 0
 for shift in shifts:
-    hours = int(shift.split(",")[2])
-    # TODO: write the test for a long shift. The coordinator counts a
-    #       shift of 4 hours or more.
-    if None:
+    hours = int(shift.split(",")[2]) 
+    # the 2nd field is hours because python counts from 0
+    
+    if hours >= 4:
+        print("Long shift")
+        long_shifts += 1 
+print("Total long shifts", long_shifts)
         # TODO: this is the counting line. Move long_shifts on by one.
-        long_shifts = None
+
 
 print("shifts of 4+ hours:", long_shifts)
 
-# Your answer:
+# Your answer: 5 total long shifts
 #
 #
 
@@ -123,15 +126,18 @@ print("shifts of 4+ hours:", long_shifts)
 #
 # That printed line per pass is a tracing tool, not decoration.
 
+# Weeks Total Hours = 37
+# Predicted Print Lines = 12
 total = 0
 for shift in shifts:
     volunteer, day, hours = shift.split(",")
     # TODO: add this shift's hours onto the running total. Mind the
     #       type: everything that came out of that split is a string.
-    total = None
+    total += int(hours) # adds this shifts hours to running total
     # TODO: print one line per pass: the day, the volunteer, and the
     #       total so far. This printed line IS the tracing tool.
-    print(day, volunteer, "| running total:", None)
+    print(day, volunteer, "| running total:", total)
+    # prints running total after each shift ^
 
 print("total hours logged this week:", total)
 
