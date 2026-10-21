@@ -47,9 +47,9 @@ print('----- 2. Parameters, Live -----')
 # personalized welcome message for each of 2 names
 
 def greet(user_name):
-    print("Welcome" + user_name)
-   # print("Welcome", user_name). <  other acceptable syntax   
-   # print("Welcome" f{UserWarning})
+   # print("Welcome" + user_name)
+   print("Welcome", user_name)
+   # print("Welcome" f{UserWarning}) <  other acceptable syntax  
 greet("Guillermo")
 greet("Michael")
 
@@ -57,7 +57,7 @@ greet("Michael")
 # DISCUSS: The code is def double(n): print(n * 2), then double(5). Put the
 #          steps of that call in order. A: n becomes 5. B: the body runs. C:
 #          double gets called with 5.
-# Your answer:
+# Your answer: A > C > B
 #
 #
 #
@@ -74,10 +74,15 @@ greet("Michael")
 print('----- 3. Return, Live -----')
 # TODO: write double(n) using return (not print), then use
 # its result in an expression - add 1 to it and print that
+def double(n):
+    return n * 2
 
+result = double(7)
+print(result + 1 )
+print(double(7) + 1) #<test line 
 # DISCUSS: A function should return a doubled value, but total + 1 raises
 #          TypeError. Using what you just saw in the Return, Live code, what's
 #          the most likely cause?
-# Your answer:
+# Your answer: Likely because it prints rather than returning. When we print it just displays the value. Return will store the value to be used again 
 #
 #
