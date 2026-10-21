@@ -232,17 +232,17 @@ print(len(volunteers), "volunteers x", len(days), "days =", checks)
 #    last? Then write two things in a comment: how many rows the buggy loop
 #    visits, and which row it never reaches.
 
-
+# The first value of i is 0
 
 # 2. Write the loop header that visits every row. Only the range changes;
 #    the body below it is already right.
 
-
+# the row it never saw: Priya,Fri,2
 
 # 3. Print the row the broken loop never reached, reaching into shifts by
 #    position rather than retyping the row by hand.
 
-
+# print("the row it never saw:",shifts[-1])
 
 # 4. Run it, and compare all three counts (rows in the file, buggy visits,
 #    fixed visits) against your prediction.
