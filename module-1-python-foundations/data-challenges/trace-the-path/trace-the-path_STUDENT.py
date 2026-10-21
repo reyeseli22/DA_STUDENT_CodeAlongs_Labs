@@ -71,13 +71,16 @@ SUBMIT
 #    print what comes back. Under the "# Your answer:" line below, type 2-3
 #    bullets: what .split() hands back, what the "," controls, and where you
 #    found that out.
+
 # 2. Predict the count by reading the file, not the code. You opened
 #    data/volunteer_shifts.txt above and it holds 12 shift rows. Read the
 #    third field on each row and count the rows where it is 4 or more. Write
 #    that one number in a comment at the top of this step, before you run a
 #    single line.
+
 # 3. Write the test for a long shift in the first TODO. "4 hours or more" is
 #    the rule, word for word.
+
 # 4. Write the counting line in the second TODO, moving long_shifts on by
 #    one.
 # 5. Run it, and compare the printed count against the number in your
@@ -184,35 +187,38 @@ print("total hours logged this week:", total)
 # 2. Collect the distinct volunteers in the first if TODO: one entry per
 #    volunteer, no repeats.
 
+#   
+
 # 3. Collect the distinct weekdays in the second if TODO, the same way.
+
+
 
 # 4. Write the inner loop header so it runs once per weekday, for every
 #    volunteer.
+
+
 
 # 5. Run it, and compare checks against the multiplication you wrote.
 #
 # If your prediction was a number of records rather than a number of pairs,
 # that gap is the thing to bring to the shareout.
 
-volunteers = ["Amara", "Luis", "Priya", "Dev"]
-days = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+volunteers = []
+days = []
 for shift in shifts:
     volunteer, day, hours = shift.split(",")
-    volunteers = str(volunteers)
-    volunteer = str(volunteer)
-    # TODO: only append a volunteer this list does not already have.
-for volunteer in volunteer
-    if None:
-        if in volunteer
+# TODO: only append a volunteer this list does not already have.
+for volunteer in volunteers
+    if volunteer not in volunteers:
         volunteers.append(volunteer)
     # TODO: the same test again, for the day.
-    if None:
+    if day not in days:
         days.append(day)
 
 checks = 0
 for volunteer in volunteers:
     # TODO: the inner loop. One pass per weekday, for each volunteer.
-    for day in None:
+    for day in days:
         checks = checks + 1
 
 print(len(volunteers), "volunteers x", len(days), "days =", checks)
@@ -235,7 +241,7 @@ print(len(volunteers), "volunteers x", len(days), "days =", checks)
 #
 # Both loops run clean, with no traceback from either. Only one of them is
 # right.
-'''
+
 buggy_seen = 0
 for i in range(len(shifts) - 1):
     buggy_seen = buggy_seen + 1
@@ -252,7 +258,7 @@ print("fixed loop visited: ", fixed_seen)
 # TODO: print the one row the buggy loop never reached. Reach into the
 #       list by position; do not retype the row by hand.
 print("the row it never saw:", None)
-'''
+
 # ----- Share Out: Day 2 -----
 # Last 15 minutes, back together as a class. Bring:
 #
