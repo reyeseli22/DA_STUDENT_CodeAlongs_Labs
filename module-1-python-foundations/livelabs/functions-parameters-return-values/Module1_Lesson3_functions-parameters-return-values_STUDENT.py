@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+# !/usr/bin/env python3
 """Functions, Parameters & Return Values
 Module 1: Python Foundations
 
@@ -29,6 +29,15 @@ print('----- 1. Define and Call, Live -----')
 # TODO: define a function named greet that prints a welcome
 # message, then call it twice
 
+#def defines a dfunction, the formula is def function()
+
+def greet():
+    print("Welcome !")
+greet()
+greet()
+
+
+
 
 # ===== 2. Parameters, Live =====
 # Make greet work for anyone: pass in a name and print a personal welcome for
@@ -36,6 +45,14 @@ print('----- 1. Define and Call, Live -----')
 print('----- 2. Parameters, Live -----')
 # TODO: add a name parameter to greet, and print a
 # personalized welcome message for each of 2 names
+
+def greet(user_name):
+    print("Welcome" + user_name)
+   # print("Welcome", user_name). <  other acceptable syntax   
+   # print("Welcome" f{UserWarning})
+greet("Guillermo")
+greet("Michael")
+
 
 # DISCUSS: The code is def double(n): print(n * 2), then double(5). Put the
 #          steps of that call in order. A: n becomes 5. B: the body runs. C:
