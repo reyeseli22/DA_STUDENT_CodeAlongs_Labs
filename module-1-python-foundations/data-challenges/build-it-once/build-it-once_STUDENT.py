@@ -43,18 +43,18 @@ SUBMIT
 ############################################################################
 
 # 1. What does one row represent?
-# Your answer:
+# Your answer: A sign up log
 #
 #
 
 # 2. Which fields hold numbers, and which hold text?
-# Your answer:
+# Your answer: columns 0 and 1, member and class name hold text or str and column 2 sessions
 #
 #
 
 # 3. What already looks wrong, missing or inconsistent?
-# Your answer:
-#
+# Your answer: The organization of the data is inconsistent. No members are grouped together nor are classes
+# We are being asked to look at long bookings what actually IS a long booking
 #
 
 ############################################################################
@@ -69,6 +69,10 @@ SUBMIT
 #    class: add the third field down all 13 records. Total sessions for Swim
 #    only: add that same field, but only on the records whose class is Swim.
 #    Write both in a comment before you run anything.
+
+#Total Sessions = 45
+#Total Swim sessions = 15
+
 # 2. Write total_sessions(records) so it adds up the sessions column across
 #    every record in records and hands the total back with return, not
 #    print.
@@ -138,13 +142,24 @@ print("what show_long_bookings handed back:", handed_back)
 # - Your two totals. Whole file, and Swim only. If your numbers differ from
 #   another group's, say so. You read the same file, so one of you has a bug
 #   worth finding.
+
+# We found 45 sessions total and 15 total swim sessions
+
 # - Your function next to the loop it replaced. Name the specific thing that
 #   got easier. Not "cleaner."
+
+
+
 # - What show_long_bookings handed back, and why. Say what that tells you
 #   about return versus print.
+
+
+
 # - Which name is the parameter and which value is the argument, pointing at
 #   your own two lines.
+
 #
+
 # Be ready to answer "why did you do it that way?"
 
 # Your notes for the share out:
