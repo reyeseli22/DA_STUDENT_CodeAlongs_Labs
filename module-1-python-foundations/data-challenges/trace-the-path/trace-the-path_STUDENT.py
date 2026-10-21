@@ -178,22 +178,32 @@ print("total hours logged this week:", total)
 #    distinct volunteer names in the file, count the distinct weekdays, and
 #    multiply the two. Write it in a comment as <volunteers> x <days> =
 #    <cells> before you write or run anything.
+
+#    <volunteers> = 4   <days> = 5  <volunteers> x <days> = 20
+
 # 2. Collect the distinct volunteers in the first if TODO: one entry per
 #    volunteer, no repeats.
+
 # 3. Collect the distinct weekdays in the second if TODO, the same way.
+
 # 4. Write the inner loop header so it runs once per weekday, for every
 #    volunteer.
+
 # 5. Run it, and compare checks against the multiplication you wrote.
 #
 # If your prediction was a number of records rather than a number of pairs,
 # that gap is the thing to bring to the shareout.
 
-volunteers = []
-days = []
+volunteers = ["Amara", "Luis", "Priya", "Dev"]
+days = ["Mon", "Tue", "Wed", "Thu", "Fri"]
 for shift in shifts:
     volunteer, day, hours = shift.split(",")
+    volunteers = str(volunteers)
+    volunteer = str(volunteer)
     # TODO: only append a volunteer this list does not already have.
+for volunteer in volunteer
     if None:
+        if in volunteer
         volunteers.append(volunteer)
     # TODO: the same test again, for the day.
     if None:
