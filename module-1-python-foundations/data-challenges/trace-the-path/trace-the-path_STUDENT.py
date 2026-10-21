@@ -88,6 +88,7 @@ SUBMIT
 #
 # If the two differ, say which line you mis-read. Do not edit the
 # prediction.
+# Amount of Long_shifts = 5
 
 with open("volunteer_shifts.txt") as f:
     shifts = [line for line in f.read().splitlines()
@@ -99,14 +100,13 @@ for shift in shifts:
     # the 2nd field is hours because python counts from 0
     
     if hours >= 4:
-        print("Long shift")
         long_shifts += 1 
-print("Total long shifts", long_shifts)
+
         
         # TODO: this is the counting line. Move long_shifts on by one.
 
 
-print("shifts of 4+ hours:", long_shifts)
+print("shifts of 4+ hours:",long_shifts)
 
 # Your answer: 5 total long shifts
 #
@@ -208,7 +208,6 @@ days = []
 for shift in shifts:
     volunteer, day, hours = shift.split(",")
 # TODO: only append a volunteer this list does not already have.
-for volunteer in volunteers
     if volunteer not in volunteers:
         volunteers.append(volunteer)
     # TODO: the same test again, for the day.
@@ -232,10 +231,19 @@ print(len(volunteers), "volunteers x", len(days), "days =", checks)
 #    1) and work out the rule: what is the first value of i, and what is the
 #    last? Then write two things in a comment: how many rows the buggy loop
 #    visits, and which row it never reaches.
+
+
+
 # 2. Write the loop header that visits every row. Only the range changes;
 #    the body below it is already right.
+
+
+
 # 3. Print the row the broken loop never reached, reaching into shifts by
 #    position rather than retyping the row by hand.
+
+
+
 # 4. Run it, and compare all three counts (rows in the file, buggy visits,
 #    fixed visits) against your prediction.
 #
@@ -245,20 +253,22 @@ print(len(volunteers), "volunteers x", len(days), "days =", checks)
 buggy_seen = 0
 for i in range(len(shifts) - 1):
     buggy_seen = buggy_seen + 1
+    #buggy_seen += 1
 
 fixed_seen = 0
 # TODO: write the loop header that visits EVERY row, not all but one.
 #       The body below is already correct. Only the range changes.
-for i in None:
+for i in range(len(shifts)): 
     fixed_seen = fixed_seen + 1
+    # fixed_seen += 1
 
 print("rows in the file:   ", len(shifts))
 print("buggy loop visited: ", buggy_seen)
 print("fixed loop visited: ", fixed_seen)
 # TODO: print the one row the buggy loop never reached. Reach into the
 #       list by position; do not retype the row by hand.
-print("the row it never saw:", None)
-
+print("the row it never saw:",shifts[-1])
+      
 # ----- Share Out: Day 2 -----
 # Last 15 minutes, back together as a class. Bring:
 #
