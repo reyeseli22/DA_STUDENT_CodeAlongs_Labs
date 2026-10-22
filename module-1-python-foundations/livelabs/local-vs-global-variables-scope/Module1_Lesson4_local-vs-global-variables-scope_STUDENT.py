@@ -59,10 +59,10 @@ print('----- 2. Reading a Global, Live -----')
 # a parameter
 tax_rate = 0.08
 
-def price_with_tax(price):
-    x = price + (price * tax_rate)
-    return x
-print(price_with_tax(100.00))
+def price_with_tax(price, c_tax_rate):
+    return price + (price * c_tax_rate)
+print(price_with_tax(20,tax_rate))
+
 
 
 # DISCUSS: Copy the price_with_tax function from the Reading a Global code into
