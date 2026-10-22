@@ -25,6 +25,7 @@ fill it in before you run the file again.
 # ===== 1. Local Scope, Live =====
 # Find out whether a variable made inside a function still exists outside of
 # it.
+
 # This is supposed to raise NameError: run it, read the traceback, then comment
 # out the raising line so the rest of the file runs.
 #
@@ -38,21 +39,27 @@ print('----- 1. Local Scope, Live -----')
 # TODO: define make_total() with a local variable total set
 # to 100, returning it, then try printing total outside the
 # function and watch what happens
-
+def make_total():
+    total = 100 
+    return total
+print(make_total())
 # DISCUSS: Now try a new function. set_x() runs and sets x = 5 inside it, but
 #          print(x) outside raises NameError. Why?
-# Your answer:
+# Your answer: Because the code is using x = 5 doesnt exist where the code can see it 
 #
 #
 
 
 # ===== 2. Reading a Global, Live =====
 # Work out the price of a $100 item with 8% tax, using a tax rate stored
-# outside the function.
+# outside the function. 8% tax on $100 is $8. The total price will be $108
 print('----- 2. Reading a Global, Live -----')
 # TODO: define tax_rate as a global, then write
 # price_with_tax(price) that reads it without taking it as
 # a parameter
+tax_rate = 0.08
+
+def price_with_tax(price):
 
 # DISCUSS: Copy the price_with_tax function from the Reading a Global code into
 #          a new file, without the tax_rate = 0.08 line. It worked here. Why

@@ -43,7 +43,7 @@ SUBMIT
 ############################################################################
 
 # 1. What does one row represent?
-# Your answer: A sign up log
+# Your answer: A member sign up log
 #
 #
 
@@ -82,17 +82,26 @@ SUBMIT
 # The arithmetic is the same arithmetic a plain loop would do. What changes
 # is that the answer comes back to you instead of going to the screen.
 
-with open("data/rec_center_signups.txt") as f:
+with open("/Users/Marcy_Student/Documents/Marcy/DA_STUDENT_CodeAlongs_Labs/module-1-python-foundations/data-challenges/build-it-once/rec_center_signups.txt") as f:
     signups = [line for line in f.read().splitlines()
                if line and not line.startswith("#")]
 
 def total_sessions(records):
+    total = 0 
+    for record in records:
+        total = total + int(record.split(",")[2])
+    return total
     # TODO: add up the sessions column across every record in `records`
     # TODO: hand the total back to whoever called this. Do not print it.
     pass
 
 swim_only = []
 # TODO: fill swim_only with just the Swim records
+for item in signups:
+    if item.split(",")[1] == "Swim":
+       swim_only.append(item)
+
+    
 
 print("every class:", total_sessions(signups))
 print("swim only:  ", total_sessions(swim_only))
@@ -242,13 +251,13 @@ last_member = "nobody yet"
 
 last_seen = "nobody yet"
 
-def log_signup_broken(record):
+'''def log_signup_broken(record):
     # Leave this body exactly as written. It is supposed to raise.
     print("previous:", last_seen)
     last_seen = record.split(",")[0]
     return last_seen
 
-log_signup_broken(signups[2])
+log_signup_broken(signups[2])'''
 
 # Your answer:
 #
