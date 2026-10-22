@@ -103,8 +103,8 @@ for item in signups:
 
     
 
-print("every class:", total_sessions(signups))
-print("swim only:  ", total_sessions(swim_only))
+print("every class:", total_sessions(signups)) 
+print("swim only:  ", total_sessions(swim_only)) 
 
 # ===== Step 2: Count Long Bookings at Two Different Cutoffs With One Function =====
 # The board changed the long-booking cutoff from 4 sessions to 2. Answering
@@ -112,21 +112,31 @@ print("swim only:  ", total_sessions(swim_only))
 #
 # 1. Predict both returned: counts in a comment, reading the third field
 #    down the file: once for 4 or more, once for 2 or more.
+
 # 2. Write count_long_bookings(records, minimum) so it counts the records
 #    whose sessions number is minimum or more, and returns that count.
+
 # 3. Write show_long_bookings(records, minimum) so it prints a sentence with
 #    the same count in it. Only print. Do not add a return.
+
 # 4. Run the whole file, including the lines at the bottom that were written
 #    for you.
+
 # 5. Write down what handed_back holds, and why. It is on the last printed
 #    line.
+
 # 6. Name the parameter and the arguments, pointing at the lines: which name
 #    is minimum, and which values are the 4 and the 2.
 #
 # One of the two functions you just wrote gives you something back. The
 # other only puts something on the screen.
 
+
 def count_long_bookings(records, minimum):
+    if item.split(",")[2] >= 2:
+       count_long_bookings.append(item)
+
+
     # TODO: count the records whose sessions number is `minimum` or more
     # TODO: return the count
     pass
@@ -188,12 +198,16 @@ print("what show_long_bookings handed back:", handed_back)
 #    Day 1's second step. All you are predicting here is which of those two
 #    numbers each of the two identical-looking calls prints. Write both in a
 #    comment, and write why.
+
 # 2. Write count_reaching_outside(records) so it counts the same thing
 #    count_long_bookings does, but takes no minimum parameter. It reads
 #    sessions_cutoff from outside the function instead.
+
 # 3. Call it once at a cutoff of 4, printing the result.
+
 # 4. Call it again, unchanged, after sessions_cutoff becomes 2, and print
 #    that result too. The call line is identical both times.
+
 # 5. Print count_long_bookings(signups, 4) underneath for comparison.
 #
 # Both versions run clean. Decide which of the two you would trust in a file
