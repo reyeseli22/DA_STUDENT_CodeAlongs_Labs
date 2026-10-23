@@ -89,17 +89,17 @@ with open("/Users/Marcy_Student/Documents/Marcy/DA_STUDENT_CodeAlongs_Labs/modul
 def total_sessions(records):
     total = 0 
     for record in records:
-        total = total + int(record.split(",")[2])
-    return total
+        total = total + int(record.split(",")[-1])
+    
     # TODO: add up the sessions column across every record in `records`
     # TODO: hand the total back to whoever called this. Do not print it.
-    pass
+    return total
 
 swim_only = []
 # TODO: fill swim_only with just the Swim records
-for item in signups:
-    if item.split(",")[1] == "Swim":
-       swim_only.append(item)
+for record in signups:
+    if record.split(",")[1] == "Swim":
+       swim_only.append(record)
 
     
 
@@ -133,8 +133,10 @@ print("swim only:  ", total_sessions(swim_only))
 
 
 def count_long_bookings(records, minimum):
-    if int(item.split(",")[2]) >= 2 >= 4: 
-       count_long_bookings.append(item)
+    if int(record.split(",")[2]) >= 2 >= 4: 
+       count_long_bookings.append(record)
+
+
 
 
 
