@@ -143,7 +143,7 @@ print("swim only:  ", total_sessions(swim_only))
 def count_long_bookings(records, minimum):
     count = 0
     for record in records:
-        if int(record.split(",")[2]) >= min:
+        if int(record.split(",")[2]) >= minimum:
             count = count + 1 
     
     # TODO: return the count
