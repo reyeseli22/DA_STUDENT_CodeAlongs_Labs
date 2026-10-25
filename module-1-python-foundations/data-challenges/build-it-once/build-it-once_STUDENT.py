@@ -128,7 +128,7 @@ print("swim only:  ", total_sessions(swim_only))
 # 5. Write down what handed_back holds, and why. It is on the last printed
 #    line.
 
-#
+# handed_back = show_long_bookings(records,4) aka it holds show_long_bookings with the argument 4 passed through the minimum parameter
 
 # 6. Name the parameter and the arguments, pointing at the lines: which name
 #    is minimum, and which values are the 4 and the 2.
@@ -152,6 +152,7 @@ def count_long_bookings(records, minimum):
 def show_long_bookings(records, minimum):
     # TODO: print a sentence with the same count in it. Only print.
     count = count_long_bookings(records, minimum)
+    print("There are", count, "Long Bookings")
 
 print("returned:", count_long_bookings(signups, 4))
 print("returned:", count_long_bookings(signups, 2))
