@@ -113,6 +113,9 @@ print("swim only:  ", total_sessions(swim_only))
 # 1. Predict both returned: counts in a comment, reading the third field
 #    down the file: once for 4 or more, once for 2 or more.
 
+# count >= 4 => 7
+# count >= 2 => 11
+
 # 2. Write count_long_bookings(records, minimum) so it counts the records
 #    whose sessions number is minimum or more, and returns that count.
 
@@ -125,28 +128,30 @@ print("swim only:  ", total_sessions(swim_only))
 # 5. Write down what handed_back holds, and why. It is on the last printed
 #    line.
 
+#
+
 # 6. Name the parameter and the arguments, pointing at the lines: which name
 #    is minimum, and which values are the 4 and the 2.
+
+# The parameters of the function are (records,minimum), the values 4 & 2 are arguments passed through the minimum parameters 
+
 #
 # One of the two functions you just wrote gives you something back. The
 # other only puts something on the screen.
 
-
+# TODO: count the records whose sessions number is `minimum` or more
 def count_long_bookings(records, minimum):
-    if int(record.split(",")[2]) >= 2 >= 4: 
-       count_long_bookings.append(record)
-
-
-
-
-
-    # TODO: count the records whose sessions number is `minimum` or more
+    count = 0
+    for record in records:
+        if int(record.split(",")[2]) >= min:
+            count = count + 1 
+    
     # TODO: return the count
-    pass
+    return count 
 
 def show_long_bookings(records, minimum):
     # TODO: print a sentence with the same count in it. Only print.
-    pass
+    count = count_long_bookings(records, minimum)
 
 print("returned:", count_long_bookings(signups, 4))
 print("returned:", count_long_bookings(signups, 2))
