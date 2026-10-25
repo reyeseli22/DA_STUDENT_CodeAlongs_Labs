@@ -210,6 +210,9 @@ print(handed_back == count_long_bookings(signups, 4))
 #    numbers each of the two identical-looking calls prints. Write both in a
 #    comment, and write why.
 
+# a cutoff of 4 will give us 7, because the condition counts signups with 4 or more sessions
+# a cutoff of 2 will give us 11 because the condition counts signups with 2 or more sessions
+
 # 2. Write count_reaching_outside(records) so it counts the same thing
 #    count_long_bookings does, but takes no minimum parameter. It reads
 #    sessions_cutoff from outside the function instead.
@@ -229,15 +232,26 @@ sessions_cutoff = 4
 def count_reaching_outside(records):
     count = 0
     for record in records:
-            if int(record.split(",")[2]):
-                count = count + 1 
+                 if int(record.split(",")[2]) >= sessions_cutoff:
+                     count = count + 1 
+    return count 
+
     # TODO: same count as count_long_bookings, but take NO minimum
     # parameter. Read sessions_cutoff from outside the function instead.
-    pass
+    
+    
 
 print("cutoff", sessions_cutoff, "gives", count_reaching_outside(signups))
 
 sessions_cutoff = 2
+
+def count_reaching_outside(records):
+     count = 0 
+     for record in records:
+          if int(record.split(",")[2]) >= sessions_cutoff:
+               count = count + 1
+    
+
 
 # TODO: call count_reaching_outside(signups) again, unchanged, and print it
 # TODO: print count_long_bookings(signups, 4) underneath for comparison
