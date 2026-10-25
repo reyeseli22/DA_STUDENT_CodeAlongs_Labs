@@ -159,6 +159,8 @@ print("returned:", count_long_bookings(signups, 2))
 
 handed_back = show_long_bookings(signups, 4)
 print("what show_long_bookings handed back:", handed_back)
+print(type(handed_back))
+print(handed_back == count_long_bookings(signups, 4))
 
 # Your answer:
 #
@@ -176,17 +178,17 @@ print("what show_long_bookings handed back:", handed_back)
 # - Your function next to the loop it replaced. Name the specific thing that
 #   got easier. Not "cleaner."
 
-
+# It got easier to have python loop through the data, filter specific data and count said data
 
 # - What show_long_bookings handed back, and why. Say what that tells you
 #   about return versus print.
 
-
+# show_long_bookings handed back "none cutoff 4 gives none", this is because prints the count but it doesnt return the count, so the call evaluates to none
 
 # - Which name is the parameter and which value is the argument, pointing at
 #   your own two lines.
 
-#
+# On line 143 (records, minimum) work as parameters, On line 157 we passed the Argument 4 through the minimum parameter. 
 
 # Be ready to answer "why did you do it that way?"
 
@@ -225,6 +227,10 @@ print("what show_long_bookings handed back:", handed_back)
 sessions_cutoff = 4
 
 def count_reaching_outside(records):
+    count = 0
+    for record in records:
+            if int(record.split(",")[2]):
+                count = count + 1 
     # TODO: same count as count_long_bookings, but take NO minimum
     # parameter. Read sessions_cutoff from outside the function instead.
     pass
