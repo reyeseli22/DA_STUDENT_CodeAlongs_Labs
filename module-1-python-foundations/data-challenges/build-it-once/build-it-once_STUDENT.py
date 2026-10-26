@@ -232,8 +232,8 @@ sessions_cutoff = 4
 def count_reaching_outside(records):
     count = 0
     for record in records:
-                 if int(record.split(",")[2]) >= sessions_cutoff:
-                     count = count + 1 
+         if int(record.split(",")[2]) >= sessions_cutoff:
+             count = count + 1 
     return count 
 
     # TODO: same count as count_long_bookings, but take NO minimum
