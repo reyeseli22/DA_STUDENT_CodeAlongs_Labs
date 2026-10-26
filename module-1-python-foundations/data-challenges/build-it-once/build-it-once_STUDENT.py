@@ -245,17 +245,22 @@ print("cutoff", sessions_cutoff, "gives", count_reaching_outside(signups))
 
 sessions_cutoff = 2
 
-def count_reaching_outside(records):
-     count = 0 
-     for record in records:
+def Count_reaching_outside(records):
+    count = 0 
+    for record in records:
           if int(record.split(",")[2]) >= sessions_cutoff:
-               count = count + 1
+            count += 1
+    return count
+    
+print("cutoff", sessions_cutoff, "gives", count_reaching_outside(signups))
+
     
 
 
 # TODO: call count_reaching_outside(signups) again, unchanged, and print it
+print (count_reaching_outside(signups))
 # TODO: print count_long_bookings(signups, 4) underneath for comparison
-
+print(count_long_bookings(signups,4))
 # ===== Step 4: Pass the Last Member In and Out, Then Trigger an UnboundLocalError =====
 # The coordinator wants each sign-up printed next to the one before it. The
 # top half is yours to write. The bottom half is written for you, and is
@@ -264,13 +269,21 @@ def count_reaching_outside(records):
 # 1. Write log_signup(record, previous_member) so it pulls the member name
 #    out of record, prints the previous member and this one on one line, and
 #    returns this member's name.
+
+
 # 2. Call it on signups[0], then on signups[1], storing what it returns back
 #    into last_member each time. Predict both printed lines in a comment
 #    first, reading the names off the top of the file.
+
+
 # 3. Leave log_signup_broken exactly as written. It tries the same job by
 #    reading and then updating last_seen, a name defined above the function.
+
+
 # 4. Predict in a comment whether its print line will work. The step above
 #    showed a function reading an outside name just fine.
+
+
 # 5. Run the file, read the traceback, and write down the exception name,
 #    the variable and the line it points at, in your own words, before you
 #    look anything up.

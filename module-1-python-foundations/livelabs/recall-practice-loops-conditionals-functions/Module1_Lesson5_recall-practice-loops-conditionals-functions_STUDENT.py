@@ -21,3 +21,11 @@ print(count_passing([55, 82, 91, 40, 76],70))
 '''def set_total():
     total = 100 
 print(total)'''
+
+def count_long_shifts(hours):
+    count = 0
+    for h in hours:
+        if h >= 4:
+            count += 1
+    return count
+print(count_long_shifts([3,4,6,2,5]))
