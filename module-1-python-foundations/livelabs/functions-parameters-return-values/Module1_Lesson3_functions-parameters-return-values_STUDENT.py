@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # !/usr/bin/env python3
 """Functions, Parameters & Return Values
 Module 1: Python Foundations
@@ -21,13 +22,15 @@ so you can tell which output belongs to which step.
 Complete each TODO as you go. A ____ blank is not valid Python, so
 fill it in before you run the file again.
 """
+=======
+#!/usr/bin/env python3
+"""Day 3 code-along: Functions, Parameters & Return.... Run: python3 <file>"""
+>>>>>>> upstream
 
 # ===== 1. Define and Call, Live =====
-# Build a reusable greeting: one function, called twice, prints the welcome
-# message two times.
+# Build a reusable greeting: one function, called twice, prints it twice.
 print('----- 1. Define and Call, Live -----')
-# TODO: define a function named greet that prints a welcome
-# message, then call it twice
+# TODO: define greet() to print a welcome message, then call it twice
 
 #def defines a dfunction, the formula is def function()
 
@@ -40,12 +43,12 @@ greet()
 
 
 # ===== 2. Parameters, Live =====
-# Make greet work for anyone: pass in a name and print a personal welcome for
-# Jordan and Amara.
+# Make greet work for anyone: pass in a name, then greet Jordan and Amara.
 print('----- 2. Parameters, Live -----')
-# TODO: add a name parameter to greet, and print a
-# personalized welcome message for each of 2 names
+# TODO: add a name parameter to greet
+# TODO: print a personal welcome for each of 2 names
 
+<<<<<<< HEAD
 def greet(user_name):
    # print("Welcome" + user_name)
    print("Welcome", user_name)
@@ -58,20 +61,20 @@ greet("Michael")
 #          steps of that call in order. A: n becomes 5. B: the body runs. C:
 #          double gets called with 5.
 # Your answer: A > C > B
-#
-#
-#
-# PREDICT before you run: Given def double(n): print(n * 2), what does
-#                         double(5) print?
+=======
+# DISCUSS: Order double(5): A: n becomes 5. B: body runs. C: it gets called.
 # Your answer:
+>>>>>>> upstream
 #
+# PREDICT before you run: If double(n) prints n * 2, what does double(5) print?
+# Your answer:
 #
 
 
 # ===== 3. Return, Live =====
-# Send a value back with return so you can use it in math. double(5) plus 1
-# should print 11.
+# Send a value back with return to use it in math. double(5) + 1 prints 11.
 print('----- 3. Return, Live -----')
+<<<<<<< HEAD
 # TODO: write double(n) using return (not print), then use
 # its result in an expression - add 1 to it and print that
 def double(n):
@@ -84,5 +87,11 @@ print(double(7) + 1) #<test line
 #          TypeError. Using what you just saw in the Return, Live code, what's
 #          the most likely cause?
 # Your answer: Likely because it prints rather than returning. When we print it just displays the value. Return will store the value to be used again 
-#
+=======
+# TODO: write double(n) using return (not print)
+# TODO: add 1 to its result and print that
+
+# DISCUSS: A doubling function's result + 1 raises TypeError. Likely cause?
+# Your answer:
+>>>>>>> upstream
 #
