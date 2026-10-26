@@ -158,9 +158,9 @@ print("returned:", count_long_bookings(signups, 4))
 print("returned:", count_long_bookings(signups, 2))
 
 handed_back = show_long_bookings(signups, 4)
-print("what show_long_bookings handed back:", handed_back)
+'''print("what show_long_bookings handed back:", handed_back)
 print(type(handed_back))
-print(handed_back == count_long_bookings(signups, 4))
+print(handed_back == count_long_bookings(signups, 4))'''
 
 # Your answer:
 #
