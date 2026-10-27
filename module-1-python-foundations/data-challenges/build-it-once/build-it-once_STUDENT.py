@@ -227,6 +227,8 @@ print(handed_back == count_long_bookings(signups, 4))'''
 # Both versions run clean. Decide which of the two you would trust in a file
 # you did not write, and say what in the call line told you.
 
+#
+
 sessions_cutoff = 4
 
 def count_reaching_outside(records):
@@ -261,6 +263,7 @@ print("cutoff", sessions_cutoff, "gives", count_reaching_outside(signups))
 print (count_reaching_outside(signups))
 # TODO: print count_long_bookings(signups, 4) underneath for comparison
 print(count_long_bookings(signups,4))
+
 # ===== Step 4: Pass the Last Member In and Out, Then Trigger an UnboundLocalError =====
 # The coordinator wants each sign-up printed next to the one before it. The
 # top half is yours to write. The bottom half is written for you, and is
@@ -296,16 +299,26 @@ print(count_long_bookings(signups,4))
 # the steps after it can run.
 
 def log_signup(record, previous_member):
+    member = record.split(",")[0]
+    print("Previous Member:", previous_member,"| Current:", member)
+    
+
+
     # TODO: pull the member name out of `record`
+
     # TODO: print the previous member and this one on one line
     # TODO: return this member's name
-    pass
+    return member
 
 last_member = "nobody yet"
 # TODO: call log_signup on signups[0], then on signups[1], storing
 # what it returns back into last_member each time
+last_member = log_signup(signups[0],last_member)
+last_member = log_signup(signups[1],last_member)
 
-last_seen = "nobody yet"
+
+
+# last_seen = "nobody yet"
 
 '''def log_signup_broken(record):
     # Leave this body exactly as written. It is supposed to raise.
@@ -347,13 +360,25 @@ log_signup_broken(signups[2])'''
 #
 # 1. Write sessions_in(record) so it pulls the sessions number out of a
 #    single record and returns it.
+
+'''def sessions_in(record):
+    sessions = int(record.split(","[2]))
+    return sessions'''
+
 # 2. Write signups_for(records, member) so it returns just the records
 #    belonging to one member.
+
+
 # 3. Write total_for(records, member) so it returns that member's total
 #    sessions, doing almost nothing itself. It gets its work done by calling
 #    the other two.
+
+
 # 4. Predict Gwen's total in a comment, adding up Gwen's rows in the file by
 #    hand.
+
+# Gwen will have 8 total sessions
+
 # 5. Print one line per member for Nia, Omar, Tess, Rafi and Gwen, and check
 #    Gwen's line against your comment.
 #
@@ -363,30 +388,57 @@ log_signup_broken(signups[2])'''
 # Three function names. Everything else is yours.
 
 def sessions_in(record):
-    pass
+    sessions = int(record.split(",")[2])
+    return sessions
 
 def signups_for(records, member):
-    pass
+    member_list = []
+    for record in records:
+        if record.split(",")[0] == member:
+            member_list.append(record)
+    return member_list
+
+print(signups_for(signups, "Nia"))
+
 
 def total_for(records, member):
+    count = 0
     # This one should get its work done by calling the other two.
-    pass
+    for record in signups_for(records, member):
+        count += sessions_in(record)
+    return count
+
+        
+
+        
 
 # TODO: print a line per member
+print("Total number of sessions for Nia:" , total_for(signups, "Nia"))
+print("Total number of sessions for Omar:", total_for(signups, "Omar"))
+print("Total number of sessions for Tess:", total_for(signups, "Tess"))
+print("Total number of sessions for Rafi:", total_for(signups, "Rafi"))
+print("Total number of sessions for Gwen:", total_for(signups, "Gwen"))
+
 
 # ===== Step 6: Run total_for() on Five Inputs Nobody Asked For, Then Judge Each Answer =====
 # No new functions. Call the ones you already have on inputs nobody asked
 # for, and write a verdict beside each printed result.
 #
 # 1. total_for on an empty list. Print the result.
+
 # 2. total_for on a list holding exactly one record.
+
 # 3. total_for with a member name that is not in the file at all, such as
 #    "Marco".
+
 # 4. total_for with a name differing from a real member's only by
 #    capitalization, such as "nia" for Nia.
+
 # 5. signups_for on the empty list.
+
 # 6. Add up the per-member totals for all five members, and print that sum
 #    beside total_sessions(signups). The two should agree.
+
 # 7. Write a verdict beside each of the five results in a comment: right, or
 #    just a number that did not crash? Argue each one with your partner
 #    first.
@@ -398,11 +450,23 @@ def total_for(records, member):
 # asked for, and write a verdict beside each printed result.
 
 # TODO: an empty list
+print(total_for([], "Nia"))
 # TODO: a list holding exactly one record
+print(total_for([signups[0]], "Nia"))
 # TODO: a member name that is not in the file at all
+print(total_for(signups, "Marco"))
 # TODO: a name that differs from a real member's only by capitalization
+print(total_for(signups,"nia"))
+print(signups_for([], "Nia"))
 # TODO: then: do the per-member totals add up to the whole-file total?
+members = ["Nia", "Omar", "Tess", "Rafi", "Gwen"]
+members_total = 0
+for member in members:
+    members_total += total_for(signups, member)
+print("Total member signups:", members_total)
+print("Whole file total",total_sessions(signups))
 
+# 
 # ----- Share Out: Day 3 -----
 # Last 15 minutes, back together as a class. Bring:
 #
