@@ -3,7 +3,7 @@
 
 import json
 
-DATA_FILE = "station_taps.csv"  # edit the filepath with the data
+DATA_FILE = "//Users/Marcy_Student/Documents/Marcy/DA_STUDENT_CodeAlongs_Labs/module-1-python-foundations/data-challenges/data/station_taps.csv"  # edit the filepath with the data
 
 with open(DATA_FILE) as f:
     rows = [line.split(",") for line in f.read().splitlines() if line]
@@ -14,9 +14,20 @@ taps = rows[1:]
 
 # ===== Day 1 =====
 
+# 
+
 # Step 1: Write `scan_for()` and Count Its Comparisons for Three Tap IDs
 def scan_for(tap_id, records):
-    # TODO: assign `comparisons` to 0
+    comparisons = 0
+    for row in records:
+        comparisons += 1 
+        if row[0] == tap_id:
+            return comparisons
+        return comparisons
+            
+            
+   
+        
     # TODO: loop over `records`; add 1 to `comparisons` for every row
     # TODO: inside the loop, return `comparisons` when row[0] == tap_id
     # TODO: after the loop, return `comparisons`
@@ -30,9 +41,9 @@ print("comparisons to find T040:", scan_for("T040", taps))
 print("comparisons to find T999:", scan_for("T999", taps))
 
 # Step 1, answer 1:
-#
+# I predict a scan will make 1 comparison to find each tap_id
 # Step 1, answer 2:
-#
+# We should plan around the count T999, because we should account her 
 
 
 # Step 2: Print Scan Cost at 5 to 40 Rows, Then Count a Nested Pair Loop
@@ -62,10 +73,10 @@ for size in [5, 10, 20, 40]:
 # TODO: if card_ids[i] == card, add 1 to tap_counts[i], set found, break
 # TODO: after the inner loop, if not found, append `card` and 1 to the lists
 
-busiest = tap_counts.index(max(tap_counts))
+'''busiest = tap_counts.index(max(tap_counts))
 print("distinct cards:", len(card_ids))
 print("comparisons the two parallel lists needed:", comparisons)
-print("busiest card:", card_ids[busiest], "with", max(tap_counts), "taps")
+print("busiest card:", card_ids[busiest], "with", max(tap_counts), "taps")'''
 
 # Step 3, answer 1:
 #
@@ -82,11 +93,11 @@ print("busiest card:", card_ids[busiest], "with", max(tap_counts), "taps")
 # TODO: assign `repeat_riders` to 0
 # TODO: loop over `taps_by_card`; add 1 to `repeat_riders` if a count is > 1
 
-print("distinct cards:", len(taps_by_card))
+'''print("distinct cards:", len(taps_by_card))
 print("lookups the dictionary needed:", lookups)
 print("unique stations:", len(stations), sorted(stations))
 print("cards that tapped more than once:", repeat_riders)
-print("taps for C001:", taps_by_card["C001"])
+print("taps for C001:", taps_by_card["C001"])'''
 
 # Step 4, answer 1:
 #
@@ -102,19 +113,19 @@ print("taps for C001:", taps_by_card["C001"])
 
 # Step 5: Save the Summary as JSON and Read the TypeError a Set Causes
 # TODO: replace each None with your Day 2 value; keep `stations` a set
-summary = {
+'''summary = {
     "service_day": "2026-03-02",
     "total_taps": None,
     "distinct_cards": None,
     "stations": None,
     "taps_by_card": None,
-}
+}'''
 
-print("about to serialize", len(summary), "keys")
+'''print("about to serialize", len(summary), "keys")
 # TODO: run the file and answer below before you change anything
 # TODO: then put # in front of the next two lines so Step 6 can run
 text = json.dumps(summary, indent=2)
-print(text)
+print(text)'''
 
 # Step 5, answer 1:
 #
@@ -130,11 +141,11 @@ print(text)
 # TODO: replace None with json.load() of "tap_summary.json"
 reloaded = None
 
-print("total_taps came back as:", reloaded["total_taps"])
+'''print("total_taps came back as:", reloaded["total_taps"])
 print("taps_by_card came back as a", type(reloaded["taps_by_card"]).__name__)
 print("C001 straight out of the file:", reloaded["taps_by_card"]["C001"])
 print("stations came back as a", type(reloaded["stations"]).__name__)
-print("round trip identical:", reloaded["taps_by_card"] == taps_by_card)
+print("round trip identical:", reloaded["taps_by_card"] == taps_by_card)'''
 
 # Step 6, answer 1:
 #
