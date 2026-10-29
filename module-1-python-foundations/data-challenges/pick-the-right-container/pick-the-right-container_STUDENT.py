@@ -43,21 +43,31 @@ print("comparisons to find T999:", scan_for("T999", taps))
 # Step 1, answer 1:
 # I predict a scan will make 1 comparison to find each tap_id
 # Step 1, answer 2:
-# We should plan around the count T999, because we should account her 
+# We should plan around the count T999, because we should account for the growth of the amount of data
 
 
 # Step 2: Print Scan Cost at 5 to 40 Rows, Then Count a Nested Pair Loop
 for size in [5, 10, 20, 40]:
     worst = scan_for("T999", taps[:size])
-    # TODO: print "rows:", `size`, "| worst-case comparisons:", `worst`
+    
+# TODO: print "rows:", `size`, "| worst-case comparisons:", `worst`
 # TODO: assign `pairs` to 0; loop over `taps` with a loop over `taps` inside
+pairs = 0 
+for tap in taps:
+    for other_tap in taps:
+        pairs += 1
+big = len(taps) * 10
+print("Pairs of Pairs:",pairs)
+print(big * big)
+print(big)
+
 # TODO: add 1 to `pairs` in the inner loop
 # TODO: print len(taps) and `pairs`
 # TODO: assign `big` to len(taps) * 10
 # TODO: print the scan's worst case and the pair loop's count on `big` rows
 
 # Step 2, answer 1:
-#
+# 
 # Step 2, answer 2:
 #
 
