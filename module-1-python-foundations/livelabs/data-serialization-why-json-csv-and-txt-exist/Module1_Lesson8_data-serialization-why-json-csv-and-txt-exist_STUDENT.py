@@ -7,6 +7,11 @@ print('----- 1. Writing to a File -----')
 # TODO: use a `with` block and open("notes.txt", "w")
 # TODO: write "Restock staplers" and "Restock printer paper"
 # TODO: end each line with "\n"
+with open("notes.txt", "w") as f:
+    f.write("Restock staplers\n")
+    f.write("Restock printer paper\n")
+
+               
 
 
 # ===== 2. Reading It Back =====
@@ -14,6 +19,8 @@ print('----- 1. Writing to a File -----')
 print('----- 2. Reading It Back -----')
 # TODO: use a `with` block and open("notes.txt")
 # TODO: print its full contents with f.read()
+with open("notes.txt") as f:
+    print(f.read())
 
 # PREDICT before you run: Rewrite notes.txt in "w" mode. Do old lines survive?
 # Your answer:
@@ -24,7 +31,7 @@ print('----- 2. Reading It Back -----')
 # This code saves three supply rows as a CSV, then prints the file as text.
 # TODO: run this and read the output
 print('----- 3. A CSV File Is Just Plain Text -----')
-csv_content = "name,count,department\nStapler,12,Office\nPaper,200,Office\n"
+csv_content = "name, count, department\nStapler, 12, Office\n Paper, 200, Office\n"
 
 with open("supply.csv", "w") as f:
     f.write(csv_content)
@@ -40,6 +47,13 @@ print('----- 4. Serializing a Record With json.dump() -----')
 # TODO: create a dict called supply: name, count and department
 # TODO: use "Stapler", 12 and "Office"
 # TODO: open "supply.json" in write mode; save the dict with json.dump()
+import json
+supply = {"Stapler": 12, "department": "Office", "name": "stapler"}
+
+with open("supply.json", "w") as f:
+    json.dump(supply, f)
+print(supply)
+
 
 
 # ===== 5. Deserializing It Back With json.load() =====
@@ -48,6 +62,13 @@ print('----- 5. Deserializing It Back With json.load() -----')
 # TODO: import json
 # TODO: open "supply.json"; read it into supply with json.load()
 # TODO: print supply["name"], then print type(supply)
+with open("supply.json", "r") as f:
+    supply = json.load(f)
+
+print(supply["name"])
+print(type(supply))
+
+
 
 # PREDICT before you run: Dump a tuple to JSON and load it back. What type?
 # Your answer:
