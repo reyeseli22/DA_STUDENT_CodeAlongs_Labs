@@ -173,6 +173,7 @@ print(text)
 
 # Step 5, answer 1:
 # TypeError: Object of type set is not JSON serializable
+
 # Step 5, answer 2:
 #
 # Step 5, answer 3:
@@ -183,13 +184,18 @@ print(text)
 # TODO: assign summary["stations"] to a type JSON can hold; keep the key
 # TODO: json.dump() `summary` into a with open("tap_summary.json", "w")
 # TODO: replace None with json.load() of "tap_summary.json"
-reloaded = None
+summary["stations"] = sorted(stations)
+with open("tap_summary.json", "w") as f: 
+    json.dump(summary, f, indent = 2)
 
-'''print("total_taps came back as:", reloaded["total_taps"])
+with open("tap_summary.json") as f:
+    reloaded = json.load(f)
+
+print("total_taps came back as:", reloaded["total_taps"])
 print("taps_by_card came back as a", type(reloaded["taps_by_card"]).__name__)
 print("C001 straight out of the file:", reloaded["taps_by_card"]["C001"])
 print("stations came back as a", type(reloaded["stations"]).__name__)
-print("round trip identical:", reloaded["taps_by_card"] == taps_by_card)'''
+print("round trip identical:", reloaded["taps_by_card"] == taps_by_card)
 
 # Step 6, answer 1:
 #
