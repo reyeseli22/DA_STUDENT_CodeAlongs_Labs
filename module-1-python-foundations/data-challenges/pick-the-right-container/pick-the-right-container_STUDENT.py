@@ -95,6 +95,7 @@ for row in taps:
         if card_ids[i] == card:
             tap_counts[i] += 1 
             found = True
+            break
     if not found:
         card_ids.append(card)
         tap_counts.append(1)
