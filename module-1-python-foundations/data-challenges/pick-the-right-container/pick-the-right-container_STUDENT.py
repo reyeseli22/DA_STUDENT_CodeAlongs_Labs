@@ -69,7 +69,9 @@ print(big)
 # Step 2, answer 1:
 # 
 # Step 2, answer 2:
-#
+# The amount of work in pair loop is determined by the worst case x the worst case
+# The work of a scan grows at the same rate as the rows grows
+# The worst case will be one check per row
 
 
 # ===== Day 2 =====
@@ -82,14 +84,28 @@ print(big)
 # TODO: inside it, loop over range(len(card_ids)); add 1 to `comparisons`
 # TODO: if card_ids[i] == card, add 1 to tap_counts[i], set found, break
 # TODO: after the inner loop, if not found, append `card` and 1 to the lists
+card_ids = []
+tap_counts = []
+comparisons = 0 
+for row in taps:
+    card = row[1]
+    found = False
+    for i in range(len(card_ids)):
+        comparisons += 1 
+        if card_ids[i] == card:
+            tap_counts[i] += 1 
+            found = True
+    if not found:
+        card_ids.append(card)
+        tap_counts.append(1)
 
-'''busiest = tap_counts.index(max(tap_counts))
+busiest = tap_counts.index(max(tap_counts))
 print("distinct cards:", len(card_ids))
 print("comparisons the two parallel lists needed:", comparisons)
-print("busiest card:", card_ids[busiest], "with", max(tap_counts), "taps")'''
+print("busiest card:", card_ids[busiest], "with", max(tap_counts), "taps")
 
 # Step 3, answer 1:
-#
+# I predict 40 comparisons
 # Step 3, answer 2:
 #
 
