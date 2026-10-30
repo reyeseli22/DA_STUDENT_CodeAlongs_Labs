@@ -108,8 +108,9 @@ print("busiest card:", card_ids[busiest], "with", max(tap_counts), "taps")
 # Step 3, answer 1:
 # I predict 40 comparisons
 # Step 3, answer 2:
-#
+# The real count is 190 and its bigger than the number of rows because the loop has to go through the dataset multiple times
 
+# The work = the rows(len(list))
 
 # Step 4: Count Taps Per Card With a Dictionary, and Stations With a Set
 # TODO: assign `taps_by_card` to an empty dict (card ID: tap count)
@@ -119,15 +120,31 @@ print("busiest card:", card_ids[busiest], "with", max(tap_counts), "taps")
 # TODO: assign `stations` to set(); loop over `taps` and .add() row[2]
 # TODO: assign `repeat_riders` to 0
 # TODO: loop over `taps_by_card`; add 1 to `repeat_riders` if a count is > 1
-
-'''print("distinct cards:", len(taps_by_card))
+taps_by_card = {}
+lookups = 0 
+for row in taps: 
+    lookups += 1 
+    card = row[1]
+    if card in taps_by_card:
+        taps_by_card[card] += 1
+    else:
+        taps_by_card[card] = 1
+stations = set()
+for row in taps: 
+    stations.add(row[2])
+    repeat_riders = 0 
+    for card in taps_by_card:
+        if taps_by_card[card] > 1:
+            repeat_riders += 1
+            
+print("distinct cards:", len(taps_by_card))
 print("lookups the dictionary needed:", lookups)
 print("unique stations:", len(stations), sorted(stations))
 print("cards that tapped more than once:", repeat_riders)
-print("taps for C001:", taps_by_card["C001"])'''
+print("taps for C001:", taps_by_card["C001"])
 
 # Step 4, answer 1:
-#
+# There will be 1 lookup, because its a dictionary and it will jump straight to the key
 # Step 4, answer 2:
 #
 # Step 4, answer 3:
