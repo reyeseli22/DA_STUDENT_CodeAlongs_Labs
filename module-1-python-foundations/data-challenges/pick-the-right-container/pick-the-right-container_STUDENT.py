@@ -162,14 +162,14 @@ summary = {
     "total_taps": len(taps),
     "distinct_cards": len(taps_by_card),
     "stations": stations,
-    "taps_by_card": taps_by_card,}
+    "taps_by_card": taps_by_card}
 
 
 print("about to serialize", len(summary), "keys")
 # TODO: run the file and answer below before you change anything
 # TODO: then put # in front of the next two lines so Step 6 can run
-text = json.dumps(summary, indent=2)
-print(text)
+# text = json.dumps(summary, indent=2)
+# print(text)
 
 # Step 5, answer 1:
 # TypeError: Object of type set is not JSON serializable
