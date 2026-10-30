@@ -136,7 +136,7 @@ for row in taps:
     for card in taps_by_card:
         if taps_by_card[card] > 1:
             repeat_riders += 1
-            
+
 print("distinct cards:", len(taps_by_card))
 print("lookups the dictionary needed:", lookups)
 print("unique stations:", len(stations), sorted(stations))
@@ -157,22 +157,22 @@ print("taps for C001:", taps_by_card["C001"])
 
 # Step 5: Save the Summary as JSON and Read the TypeError a Set Causes
 # TODO: replace each None with your Day 2 value; keep `stations` a set
-'''summary = {
+summary = {
     "service_day": "2026-03-02",
     "total_taps": None,
     "distinct_cards": None,
     "stations": None,
-    "taps_by_card": None,
-}'''
+    "taps_by_card": None,}
 
-'''print("about to serialize", len(summary), "keys")
+
+print("about to serialize", len(summary), "keys")
 # TODO: run the file and answer below before you change anything
 # TODO: then put # in front of the next two lines so Step 6 can run
 text = json.dumps(summary, indent=2)
-print(text)'''
+print(text)
 
 # Step 5, answer 1:
-#
+# TypeError: Object of type set is not JSON serializable
 # Step 5, answer 2:
 #
 # Step 5, answer 3:
