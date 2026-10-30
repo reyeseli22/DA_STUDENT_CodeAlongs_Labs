@@ -159,10 +159,10 @@ print("taps for C001:", taps_by_card["C001"])
 # TODO: replace each None with your Day 2 value; keep `stations` a set
 summary = {
     "service_day": "2026-03-02",
-    "total_taps": None,
-    "distinct_cards": None,
-    "stations": None,
-    "taps_by_card": None,}
+    "total_taps": len(taps),
+    "distinct_cards": len(taps_by_card),
+    "stations": stations,
+    "taps_by_card": taps_by_card,}
 
 
 print("about to serialize", len(summary), "keys")

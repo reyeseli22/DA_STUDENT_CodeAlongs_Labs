@@ -1,0 +1,14 @@
+{
+  "service_day": "2026-03-02",
+  "total_taps": null,
+  "distinct_cards": null,
+  "stations": [
+    "Atlantic Av",
+    "Franklin Av",
+    "Grand Central",
+    "Jay St",
+    "Nostrand Av",
+    "Union Sq"
+  ],
+  "taps_by_card": null
+}
