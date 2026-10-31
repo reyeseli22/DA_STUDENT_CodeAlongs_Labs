@@ -68,6 +68,10 @@ print(big)
 
 # Step 2, answer 1:
 # 
+#
+
+
+
 # Step 2, answer 2:
 # The amount of work in pair loop is determined by the worst case x the worst case
 # The work of a scan grows at the same rate as the rows grows
@@ -145,12 +149,17 @@ print("taps for C001:", taps_by_card["C001"])
 
 # Step 4, answer 1:
 # There will be 1 lookup, because its a dictionary and it will jump straight to the key
+
 # Step 4, answer 2:
-#
+# The real count is 190 and its bigger than the number of rows because the loop has to go through the dataset multiple times
+
 # Step 4, answer 3:
-#
+# stations loops over the 3rd row index[2] and adds the values into a set, which only keeps unique values, so it counts the number of unique stations
+# taps_by_card loops over the 2nd row index[1] and adds the values into a dictionary, which keeps unique keys, so it counts the number of unique cards
+
 # Step 4, answer 4:
-#
+# len(taps_by_card) explains the gap between the two counts because it is counting the number of unique cards, 
+# while the other count is counting the total number of taps, which includes multiple taps from the same card.
 
 
 # ===== Day 3 =====
@@ -175,9 +184,10 @@ print("about to serialize", len(summary), "keys")
 # TypeError: Object of type set is not JSON serializable
 
 # Step 5, answer 2:
-#
+# The "stations" set broke the code. Because JSON has no Set type
+
 # Step 5, answer 3:
-#
+# Yes about to serialize printed before the error , this tells me the "taps_by_card" dictionary is JSON serializable since it only contains data types compatible with JSON.
 
 
 # Step 6: Write `tap_summary.json`, Reload It, and Check Which Types Survived
@@ -198,6 +208,8 @@ print("stations came back as a", type(reloaded["stations"]).__name__)
 print("round trip identical:", reloaded["taps_by_card"] == taps_by_card)
 
 # Step 6, answer 1:
-#
+# Yes they can get one cards count, because that us what the line " reloaded["taps_by_card"]["C001"]" does 
+
 # Step 6, answer 2:
-#
+# taps_by_card survived, stations was converted from a set to a list after being loaded
+  
