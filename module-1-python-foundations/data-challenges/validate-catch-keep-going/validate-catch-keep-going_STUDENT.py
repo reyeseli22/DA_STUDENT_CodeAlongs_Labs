@@ -14,19 +14,25 @@ rows = [line for line in lines[1:] if line]
 
 # Step 1: Write `validate_request()` to Return a Verdict and a Reason
 # TODO: assign `EXPECTED_FIELDS` to 5
+EXPECTED_FIELDS = 5
 # TODO: assign `ALLOWED_STATUS` to ["Open", "In Progress", "Closed"]
+ALLOWED_STATUS = ["Open", "In Progress", "Closed"]
 
-
+# TODO: assign `fields` to `row` split on commas
+# TODO: unpack `fields` into the five names in the CSV header
+# TODO: if `borough` is empty, return False and "borough is empty"
+# TODO: if `status` is not in ALLOWED_STATUS, return False and a reason
+# TODO: return True and "ok"
 def validate_request(row):
-    # TODO: assign `fields` to `row` split on commas
+    fields = row.split(",") 
     if len(fields) != EXPECTED_FIELDS:
         return False, "wrong field count: " + str(len(fields))
-    # TODO: unpack `fields` into the five names in the CSV header
-    # TODO: if `borough` is empty, return False and "borough is empty"
-    # TODO: if `status` is not in ALLOWED_STATUS, return False and a reason
-    # TODO: make that reason "status not allowed: " plus `status`
-    # TODO: return True and "ok"
-    pass
+    request_id, complaint_type, borough, days_open, status = fields
+    if not borough:
+        return False, "borough is empty"
+    if status not in ALLOWED_STATUS:
+        return False, "status not allowed: " + status
+    return True, "ok"
 
 
 print(validate_request("SR-1001,Noise - Residential,Brooklyn,3,Closed"))
@@ -34,8 +40,12 @@ print(validate_request("SR-1004,Rodent,,6,Closed"))
 print(validate_request("SR-1009,Water System,Queens,4,Escalated"))
 
 # Step 1, answer 1:
-#
-# Step 1, answer 2:
+# In the file there are 15 rows of data, Eaxh row is split into 5 columns, the headers are as follows request_id, complaint_type, borough, days_open, status. 
+# Upon initial obsevation I see there are 3 rows that are invalid, 
+# the first row is valid, the second row has an empty borough field and the third row has a status that is not allowed.
+# Step 1, answer 2: 
+# return a and b ; it returns a tuple of two values, 
+# the first is a boolean indicating if the request is valid, and the second is a string providing the reason for rejection or "ok" if valid.
 #
 
 
@@ -44,7 +54,13 @@ print(validate_request("SR-1009,Water System,Queens,4,Escalated"))
 # TODO: loop over `rows`; unpack validate_request(row) into ok, reason
 # TODO: if `ok`, add 1 to `valid`
 # TODO: else print row.split(",")[0], "REJECTED -" and `reason`
-
+valid = 0 
+for row in rows:
+    ok, reason = validate_request(row)
+    if ok:
+        valid += 1
+    else:
+        print(row.split(",")[0], "REJECTED -", reason)
 print("header:", header)
 print("rows read:", len(rows))
 print("passed Day 1 validation:", valid)
