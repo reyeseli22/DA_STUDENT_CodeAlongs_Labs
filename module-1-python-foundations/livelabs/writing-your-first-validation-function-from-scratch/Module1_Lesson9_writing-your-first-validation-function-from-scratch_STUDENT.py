@@ -83,6 +83,8 @@ def validate_batch_1(lines):
             print(f"Line: {line_number}: Looks valid")
         else:
             print(f"Line {line_number}: Wrong number of fields")
+
+validate_batch_1(lines)
 # TODO: update both print statements to use f"Line {line_number}: ..."
 # instead of printing the line's text
 
@@ -108,6 +110,8 @@ def validate_batch_update(lines):
         else:
             action, title, players = fields
             print(f"Line {line_number}: OK, {title}")
+
+validate_batch_update(lines)
 # TODO: if len(fields) != 3, report "bad format"
 # TODO: elif fields[2] isn't all digits (.isdigit()), report
 # "bad players"
