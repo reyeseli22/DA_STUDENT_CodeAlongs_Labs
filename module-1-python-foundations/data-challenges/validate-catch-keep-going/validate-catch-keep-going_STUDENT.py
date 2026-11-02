@@ -81,7 +81,7 @@ print("passed Day 1 validation:", valid)
 # TODO: print the row's ID, "days open:" and `days_open`
 # TODO: after your answers, comment out this step so Step 4 can run
 
-print("average days open:", total_days / counted)
+# print("average days open:", total_days / counted)
 
 # Step 3, answer 1:
 #
@@ -108,8 +108,8 @@ def check_days_open(value):
 # TODO: if still ok, add the days to `total_days` and 1 to `counted`
 # TODO: else add 1 to `skipped`; print the ID, "SKIPPED -" and `reason`
 
-print("counted:", counted, "| skipped:", skipped)
-print("average days open:", round(total_days / counted, 1))
+# print("counted:", counted, "| skipped:", skipped)
+# print("average days open:", round(total_days / counted, 1))
 
 # Step 4, answer 1:
 #
