@@ -6,7 +6,7 @@ DATA_FILE = "service_requests.csv"  # edit the filepath with the data
 with open(DATA_FILE) as f:
     lines = f.read().splitlines()
 
-header = lines[1:]
+header = lines[0]
 rows = [line for line in lines[1:] if line]
 
 
