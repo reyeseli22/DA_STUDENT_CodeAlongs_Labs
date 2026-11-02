@@ -98,6 +98,16 @@ def validate_batch(lines):
 # numbered line.
 print('----- 5. Putting It Together: Both Checks at Once -----')
 # TODO: define validate_batch(lines) using enumerate(lines, 1)
+def validate_batche(lines):
+    for line_number, line in enumerate(lines, start = 1 ):
+        fields = line.split(",")
+        if len(fields) != 3:
+            print(f"Line {line_number}: bad format")
+        elif not fields[2].isdigit():
+            print(f"Line {line_number}: bad players")
+        else:
+            action, title, players = fields
+            print(f"Line {line_number}: OK, {title}")
 # TODO: if len(fields) != 3, report "bad format"
 # TODO: elif fields[2] isn't all digits (.isdigit()), report
 # "bad players"
