@@ -28,7 +28,7 @@ def validate_request(row):
     if len(fields) != EXPECTED_FIELDS:
         return False, "wrong field count: " + str(len(fields))
     request_id, complaint_type, borough, days_open, status = fields
-    if not borough:
+    if borough == "":
         return False, "borough is empty"
     if status not in ALLOWED_STATUS:
         return False, "status not allowed: " + status
@@ -60,7 +60,7 @@ for row in rows:
     if ok:
         valid += 1
     else:
-        print(row.split(",")[0], "REJECTED -", reason)
+        print(row.split(",")[0], "REJECTED -" + reason)
 print("header:", header)
 print("rows read:", len(rows))
 print("passed Day 1 validation:", valid)
