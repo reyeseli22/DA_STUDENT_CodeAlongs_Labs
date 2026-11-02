@@ -59,6 +59,13 @@ for line in lines:
 print('----- 3. Step 3: Wrap It in a Real Function -----')
 # TODO: define validate_batch(lines) — move Step 2's loop and
 # conditional inside it
+def validate_batch(lines):
+    for line in lines:
+        fields = line.split(",")
+        if len(fields) == 3:
+            print("Looks valid:", line)
+        else:
+            print("Wrong number of fields", line)
 
 
 # TODO: call validate_batch(lines)
