@@ -66,9 +66,13 @@ print("rows read:", len(rows))
 print("passed Day 1 validation:", valid)
 
 # Step 2, answer 1:
-#
+# 3 rows fail. The rows and the reason they failed are as follows
+# SR-1004 REJECTED -borough is empty
+# SR-1009 REJECTED -status not allowed: Escalated
+# SR-1011 REJECTED -wrong field count: 4
 # Step 2, answer 2:
-#
+# The line below should not have passed, the amount of days the request has been open says -3 days
+# SR-1013,Sidewalk Condition,Manhattan,-3,Open
 
 
 # ===== Day 2 =====
@@ -82,7 +86,15 @@ print("passed Day 1 validation:", valid)
 # TODO: after your answers, comment out this step so Step 4 can run
 
 # print("average days open:", total_days / counted)
-
+total_days = 0
+counted = 0
+for row in rows: 
+    ok, reason = validate_request(row)
+    if not ok:
+        continue 
+    days_open = int(row.split(",")[3])
+    total_days += days_open
+    counted += 1 
 # Step 3, answer 1:
 #
 # Step 3, answer 2:
