@@ -37,6 +37,12 @@ for line in lines:
 # Check each line and report whether it has exactly three fields.
 print("----- 2. Step 2: Check Each Line's Shape -----")
 # TODO: loop over lines
+for line in lines:
+    fields = line.split(",")
+    if len(fields) == 3:
+        print("Looks valid:", line)
+    else:
+        print("Wrong number of fields", line)
 # TODO: split each line on "," into a variable called fields
 # TODO: if fields has exactly 3 items, print "Looks valid:" and the line
 # TODO: otherwise, print "Wrong number of fields:" and the line
