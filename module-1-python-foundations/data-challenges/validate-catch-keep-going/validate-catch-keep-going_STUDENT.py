@@ -73,7 +73,8 @@ print("passed Day 1 validation:", valid)
 # Step 2, answer 2:
 # The line below should not have passed, the amount of days the request has been open says -3 days
 # SR-1013,Sidewalk Condition,Manhattan,-3,Open
-
+# The line below should not have passed, the days_open states "3 days" a str not an int
+# SR-1014,Illegal Parking,Staten Island,7,Closed
 
 # ===== Day 2 =====
 
@@ -96,11 +97,19 @@ for row in rows:
     total_days += days_open
     counted += 1 
 # Step 3, answer 1:
-#
+# I predict 6 report lines will print before it crashes. 
+# The first 6 rows contain int in the [3] field, the 7th contains a str
+
 # Step 3, answer 2:
-#
+#Traceback (most recent call last):
+#   File "/Users/Marcy_Student/Documents/Marcy/DA_STUDENT_CodeAlongs_Labs/module-1-python-foundations/data-challenges/validate-catch-keep-going/validate-catch-keep-going_STUDENT.py", line 95, in <module>
+#     days_open = int(row.split(",")[3])
+# ValueError: invalid literal for int() with base 10: '3 days'
+# No rows were counted before 
+
 # Step 3, answer 3:
-#
+# They were ignored
+
 
 
 # Step 4: Rebuild the Report So Every Row Is Counted or Skipped
