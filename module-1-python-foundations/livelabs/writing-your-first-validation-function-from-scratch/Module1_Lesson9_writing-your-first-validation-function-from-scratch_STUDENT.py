@@ -59,23 +59,30 @@ for line in lines:
 print('----- 3. Step 3: Wrap It in a Real Function -----')
 # TODO: define validate_batch(lines) — move Step 2's loop and
 # conditional inside it
-def validate_batch(lines):
-    for line in lines:
-        fields = line.split(",")
-        if len(fields) == 3:
-            print("Looks valid:", line)
-        else:
-            print("Wrong number of fields", line)
+# def validate_batch(lines):
+#     for line in lines:
+#         fields = line.split(",")
+#         if len(fields) == 3:
+#             print("Looks valid:", line)
+#         else:
+#             print("Wrong number of fields", line)
 
 
 # TODO: call validate_batch(lines)
-
+# validate_batch(lines)
 
 # ===== 4. Step 4: Add enumerate() =====
 # Use enumerate() so each message names its line number, starting at 1.
 print('----- 4. Step 4: Add enumerate() -----')
 # TODO: change the loop to "for line_number, line in
 # enumerate(lines, start=1):"
+def validate_batch(lines):
+    for line_number, line in enumerate(lines, start =1 ):
+        fields = line.split(",")
+        if len(fields) == 3:
+            print(f"Line: {line_number}: Looks valid")
+        else:
+            print(f"Line {line_number}: Wrong number of fields")
 # TODO: update both print statements to use f"Line {line_number}: ..."
 # instead of printing the line's text
 
