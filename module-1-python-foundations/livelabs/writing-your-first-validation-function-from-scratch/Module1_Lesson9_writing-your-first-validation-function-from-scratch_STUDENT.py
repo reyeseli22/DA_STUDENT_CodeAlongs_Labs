@@ -48,7 +48,7 @@ for line in lines:
 # TODO: otherwise, print "Wrong number of fields:" and the line
 
 # PREDICT before you run: Which message prints for "ADD,Uno"?
-# Your answer:
+# Your answer: "Wrong number of fields" would print for "ADD,Uno" because it only has 2 fields, not 3.
 #
 #
 
@@ -59,13 +59,13 @@ for line in lines:
 print('----- 3. Step 3: Wrap It in a Real Function -----')
 # TODO: define validate_batch(lines) — move Step 2's loop and
 # conditional inside it
-# def validate_batch(lines):
-#     for line in lines:
-#         fields = line.split(",")
-#         if len(fields) == 3:
-#             print("Looks valid:", line)
-#         else:
-#             print("Wrong number of fields", line)
+def validate_batch(lines):
+    for line in lines:
+        fields = line.split(",")
+        if len(fields) == 3:
+            print("Looks valid:", line)
+        else:
+            print("Wrong number of fields", line)
 
 
 # TODO: call validate_batch(lines)
@@ -76,7 +76,7 @@ print('----- 3. Step 3: Wrap It in a Real Function -----')
 print('----- 4. Step 4: Add enumerate() -----')
 # TODO: change the loop to "for line_number, line in
 # enumerate(lines, start=1):"
-def validate_batch(lines):
+def validate_batch_1(lines):
     for line_number, line in enumerate(lines, start =1 ):
         fields = line.split(",")
         if len(fields) == 3:
@@ -88,7 +88,7 @@ def validate_batch(lines):
 
 # PREDICT before you run: Delete start=1, so the loop reads enumerate(lines).
 #                         What line number does "ADD,Uno" get?
-# Your answer:
+# Your answer: The count would begine from 0, "ADD,Uno" would get [2]
 #
 #
 
@@ -98,7 +98,7 @@ def validate_batch(lines):
 # numbered line.
 print('----- 5. Putting It Together: Both Checks at Once -----')
 # TODO: define validate_batch(lines) using enumerate(lines, 1)
-def validate_batche(lines):
+def validate_batch_update(lines):
     for line_number, line in enumerate(lines, start = 1 ):
         fields = line.split(",")
         if len(fields) != 3:
@@ -116,6 +116,6 @@ def validate_batche(lines):
 
 # PREDICT before you run: Which check flags "ADD,Checkers,two"? The len(fields)
 #                         check, the unpacking line, or the isdigit() check?
-# Your answer:
+# Your answer: the .isdigit() check, because this methos verifys whether a value contains an int or Alpha numeric values 
 #
 #
