@@ -67,6 +67,8 @@ def validate_batch(lines):
         else:
             print("Wrong number of fields", line)
 
+validate_batch(lines)
+
 
 # TODO: call validate_batch(lines)
 # validate_batch(lines)
