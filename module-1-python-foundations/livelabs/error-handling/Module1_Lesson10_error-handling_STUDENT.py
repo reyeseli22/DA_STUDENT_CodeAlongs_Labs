@@ -37,6 +37,9 @@ except ValueError as err:
     print(f"Raised ValueError as expected:{err}")
 except Exception as err:
     print(f"FAILED:  expected ValueError, got{type(err).__name__}: {err}")
+    raise SystemExit(1)  # stop the program
+else:
+    print(f"FAILED: expected value error, but nothing was raised")
 
 
 # PREDICT before you run: This crash is a ValueError. Which error would "5" + 3
