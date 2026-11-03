@@ -29,13 +29,15 @@ fill it in before you run the file again.
 # This is supposed to raise ValueError: run it, read the traceback, then
 # comment out the raising line so the rest of the file runs.
 print('----- 1. Watch This Crash -----')
-quantity = "abc"
-count = int(quantity)
-print("Converted:", count)
+try:
+    quantity = "abc"
+    count = int(quantity) #type casting
+    print("Converted:", count)
+except: ValueError
 
 # PREDICT before you run: This crash is a ValueError. Which error would "5" + 3
 #                         raise? ValueError, TypeError or NameError?
-# Your answer:
+# Your answer: A Value Error
 #
 #
 #

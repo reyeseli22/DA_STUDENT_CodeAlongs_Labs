@@ -2,7 +2,7 @@ request_id,complaint_type,borough,days_open,status
 SR-1001,Noise - Residential,Brooklyn,3,Closed
 SR-1002,Illegal Parking,Queens,1,Closed
 SR-1003,Street Light Out,Bronx,12,Open
-SR-1004,Rodent,,6,Closed        
+SR-1004,Rodent,,6,Closed 
 SR-1005,Water System,Manhattan,2,In Progress
 SR-1006,Noise - Residential,Staten Island,8,Open
 SR-1007,Illegal Parking,Brooklyn,3 days,Open
