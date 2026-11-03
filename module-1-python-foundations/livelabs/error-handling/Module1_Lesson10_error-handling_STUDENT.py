@@ -33,7 +33,11 @@ try:
     quantity = "abc"
     count = int(quantity) #type casting
     print("Converted:", count)
-except: ValueError
+except ValueError as err:
+    print(f"Raised ValueError as expected:{err}")
+except Exception as err:
+    print(f"FAILED:  expected ValueError, got{type(err).__name__}: {err}")
+
 
 # PREDICT before you run: This crash is a ValueError. Which error would "5" + 3
 #                         raise? ValueError, TypeError or NameError?
