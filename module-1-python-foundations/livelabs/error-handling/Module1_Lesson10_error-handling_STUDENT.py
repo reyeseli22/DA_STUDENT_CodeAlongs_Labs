@@ -29,17 +29,17 @@ fill it in before you run the file again.
 # This is supposed to raise ValueError: run it, read the traceback, then
 # comment out the raising line so the rest of the file runs.
 print('----- 1. Watch This Crash -----')
-try:
-    quantity = "abc"
-    count = int(quantity) #type casting
-    print("Converted:", count)
-except ValueError as err:
-    print(f"Raised ValueError as expected:{err}")
-except Exception as err:
-    print(f"FAILED:  expected ValueError, got{type(err).__name__}: {err}")
-    raise SystemExit(1)  # stop the program
-else:
-    print(f"FAILED: expected value error, but nothing was raised")
+# try:
+#     quantity = "abc"
+#     count = int(quantity) #type casting
+#     print("Converted:", count)
+# except ValueError as err:
+#     print(f"Raised ValueError as expected:{err}")
+# except Exception as err:
+#     print(f"FAILED:  expected ValueError, got{type(err).__name__}: {err}")
+#     raise SystemExit(1)  # stop the program
+# else:
+#     print(f"FAILED: expected value error, but nothing was raised")
 
 
 # PREDICT before you run: This crash is a ValueError. Which error would "5" + 3
@@ -61,14 +61,22 @@ else:
 # crashing.
 print('----- 2. Catching the Crash -----')
 # TODO: set quantity = "abc"
+quantity = "abc"
 # TODO: inside a try block, convert it to int and print "Converted:"
 # plus the result
+try:
+    x = int(quantity)
+    print("Converted:", x)
+except ValueError as err:
+    print("Thats not a valid number")
+
 # TODO: in an except ValueError block, print "That's not a valid
 # number."
 
 # DISCUSS: In the door-handle analogy, which part of this code is reacting once
 #          you find the door locked?
-# Your answer:
+# Your answer: the except block is reacting to the error raised by the try block when it attempts to convert a non-numeric string to an integer. 
+# It handles the situation gracefully instead of allowing the program to crash.
 #
 #
 #
@@ -83,6 +91,15 @@ print('----- 2. Catching the Crash -----')
 # message, and keeps going.
 print('----- 3. Putting It Together: Two except Clauses -----')
 # TODO: define validate_batch(lines)
+def validate_batch(lines):
+    for line in lines: 
+        try:
+            fields = line.split(",")
+            print("OK", fields[1], int(fields[2]))
+        except IndexError:
+            print("Bad Format:", line)
+        except ValueError:
+            print("Bad quantity:", line)
 # TODO: for each line, inside a try block: split on ",", print
 # "OK:" with fields[1] and int(fields[2])
 # TODO: add an except IndexError clause printing "Bad format:" + line
@@ -91,7 +108,8 @@ print('----- 3. Putting It Together: Two except Clauses -----')
 # TODO: create a list called lines with these 3 strings:
 # "ADD,Chess,4", "REMOVE,Uno", "ADD,Dice,two"
 # TODO: call validate_batch(lines)
-
+list = "ADD,Chess,4", "REMOVE,Uno", "ADD,Dice,two"
+validate_batch(list)
 # PREDICT before you run: For "REMOVE,Uno", which step raises the error?
 #                         line.split(","), fields[2], or int(...)?
 # Your answer:
