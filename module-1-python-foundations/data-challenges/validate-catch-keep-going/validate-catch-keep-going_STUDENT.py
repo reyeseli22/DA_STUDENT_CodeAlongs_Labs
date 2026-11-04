@@ -38,7 +38,7 @@ def validate_request(row):
 print(validate_request("SR-1001,Noise - Residential,Brooklyn,3,Closed"))
 print(validate_request("SR-1004,Rodent,,6,Closed"))
 print(validate_request("SR-1009,Water System,Queens,4,Escalated"))
-
+print()
 # Step 1, answer 1:
 # In the file there are 15 rows of data, Eaxh row is split into 5 columns, the headers are as follows request_id, complaint_type, borough, days_open, status. 
 # Upon initial obsevation I see there are 3 rows that are invalid, 
@@ -60,11 +60,11 @@ for row in rows:
     if ok:
         valid += 1
     else:
-        print(row.split(",")[0], "REJECTED -" + reason)
+        print(row.split(",")[0], "REJECTED -", reason)
 print("header:", header)
 print("rows read:", len(rows))
 print("passed Day 1 validation:", valid)
-
+print()
 # Step 2, answer 1:
 # 3 rows fail. The rows and the reason they failed are as follows
 # SR-1004 REJECTED -borough is empty
@@ -75,7 +75,7 @@ print("passed Day 1 validation:", valid)
 # SR-1013,Sidewalk Condition,Manhattan,-3,Open
 # The line below should not have passed, the days_open states "3 days" a str not an int
 # SR-1014,Illegal Parking,Staten Island,7,Closed
-
+print()
 # ===== Day 2 =====
 
 # Step 3: Build the Days-Open Report With No Protection and Watch It Crash
@@ -98,7 +98,9 @@ try:
     total_days += days_open
     counted += 1 
     print(row.split(",")[0],"days open:", days_open)
-except: ValueError
+except:
+    e = ValueError
+    print("Error processing row:", row)
 print("average days open:", total_days / counted)
 
 # Step 3, answer 1:
@@ -119,13 +121,27 @@ print("average days open:", total_days / counted)
 
 # Step 4: Rebuild the Report So Every Row Is Counted or Skipped
 def check_days_open(value):
+    total_days = 0
+    counted = 0
+try:
+    for row in rows: 
+        ok, reason = validate_request(row)
+        if not ok:
+            continue 
+    days_open = int(row.split(",")[3])
+    total_days += days_open
+    counted += 1 
+    print(row.split(",")[0],"days open:", days_open)
+except:
+    e = ValueError
+
     # TODO: in a try, assign `days` to int(value)
     # TODO: in except ValueError, return False and a reason
     # TODO: make that reason "days_open is not a number: " plus `value`
     # TODO: if `days` is below 0, return False and a reason
     # TODO: make that reason "days_open is negative: " plus `value`
     # TODO: return True and "ok"
-    pass
+
 
 
 # TODO: assign `total_days`, `counted` and `skipped` to 0
