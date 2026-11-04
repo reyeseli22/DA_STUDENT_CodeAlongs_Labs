@@ -86,7 +86,7 @@ print("passed Day 1 validation:", valid)
 # TODO: print the row's ID, "days open:" and `days_open`
 # TODO: after your answers, comment out this step so Step 4 can run
 
-# print("average days open:", total_days / counted)
+# print("average days open:", total_days / counted) 
 total_days = 0
 counted = 0
 for row in rows: 
@@ -96,6 +96,7 @@ for row in rows:
     days_open = int(row.split(",")[3])
     total_days += days_open
     counted += 1 
+    print(row.split(",")[0],"days open:", days_open)
 # Step 3, answer 1:
 # I predict 6 report lines will print before it crashes. 
 # The first 6 rows contain int in the [3] field, the 7th contains a str
