@@ -57,10 +57,11 @@ print('----- 2. Any Number of Named Arguments With **kwargs -----')
 def describe_game(title, **details):
     print(title)
     for x, y in details.items():
-        print({x,y})
+        print(f"{x}:{y}")
+
 
 # TODO: call it with "Chess", players=2, category="Strategy"
-
+print(describe_game("Chess", players = 2, category = "Strategy"))
 # PREDICT before you run: What does describe_game("Uno", players=4) print?
 #                         Write your guess, then add that call under the Chess
 #                         call in Any Number of Named Arguments With **kwargs
