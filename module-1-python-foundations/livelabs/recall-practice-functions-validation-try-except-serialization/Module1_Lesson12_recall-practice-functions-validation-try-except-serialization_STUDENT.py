@@ -61,11 +61,13 @@ def describe_game(title, **details):
 
 
 # TODO: call it with "Chess", players=2, category="Strategy"
-print(describe_game("Chess", players = 2, category = "Strategy"))
+describe_game({"Game:Chess:"}, {"players = 2"}, {"category" : "Strategy")
 # PREDICT before you run: What does describe_game("Uno", players=4) print?
 #                         Write your guess, then add that call under the Chess
 #                         call in Any Number of Named Arguments With **kwargs
 #                         and run it to check.
+# I predict the output will be UNO: players : 4 
+print(describe_game("Uno:", players = 4))
 # Your answer:
 #
 #
