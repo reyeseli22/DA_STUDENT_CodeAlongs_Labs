@@ -121,19 +121,6 @@ print("average days open:", total_days / counted)
 
 # Step 4: Rebuild the Report So Every Row Is Counted or Skipped
 def check_days_open(value):
-    total_days = 0
-    counted = 0
-try:
-    for row in rows: 
-        ok, reason = validate_request(row)
-        if not ok:
-            continue 
-    days_open = int(row.split(",")[3])
-    total_days += days_open
-    counted += 1 
-    print(row.split(",")[0],"days open:", days_open)
-except:
-    e = ValueError
 
     # TODO: in a try, assign `days` to int(value)
     # TODO: in except ValueError, return False and a reason
@@ -141,21 +128,43 @@ except:
     # TODO: if `days` is below 0, return False and a reason
     # TODO: make that reason "days_open is negative: " plus `value`
     # TODO: return True and "ok"
+    try:
+        days = int(value)
+    except ValueError:
+        return False, "days_open is not a number: " + value
+    if days < 0:
+        return False, "days_open is negative: " + value
+    return True, "ok"
 
-
+    
 
 # TODO: assign `total_days`, `counted` and `skipped` to 0
 # TODO: loop over `rows`; unpack validate_request(row) into ok, reason
 # TODO: if ok, unpack check_days_open() of the fourth field into ok, reason
 # TODO: if still ok, add the days to `total_days` and 1 to `counted`
 # TODO: else add 1 to `skipped`; print the ID, "SKIPPED -" and `reason`
-
+total_days = 0
+counted = 0 
+skipped = 0 
+for row in rows:
+    ok, reason = validate_request(row)
+    if ok:
+        ok, reason = check_days_open(row.split(",")[3])
+        if ok:
+            total_days += int(row.split(",")[3])
+            counted += 1
+        else:
+            skipped += 1
+            print(row.split(",")[0], "SKIPPED -", reason)
 # print("counted:", counted, "| skipped:", skipped)
 # print("average days open:", round(total_days / counted, 1))
 
 # Step 4, answer 1:
-#
+# 2 rows get skipped, the first row has a negative number of days open 
+# the second row has a string instead of an int.
+# The Day 1 validator let through rows with issues in the days_open
 # Step 4, answer 2:
-#
+# If caught the issues, Try could not have caught them
 # Step 4, answer 3:
-#
+# No, the Day 1 validator does not check for issues in the days_open field. 
+# It only checks for the number of fields, if borough is empty, and if status is allowed.
