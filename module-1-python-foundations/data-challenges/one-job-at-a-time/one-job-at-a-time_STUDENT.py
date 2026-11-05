@@ -20,6 +20,17 @@ def read_donations(path):
 
 
 def validate_donation(record):
+    """Returns a verdict and a reason for one record"""
+    parts = record.split(",")
+    if len(parts) != 5:
+        return (False, "wrong field count")
+    if parts[2].strip() is "":
+        return (False, "Missing Category")
+    try: 
+        float(parts[3])
+    except ValueError:
+        return (True, "")
+
     # TODO: add a one-sentence docstring naming its one job
     # TODO: assign `parts` to `record` split on commas
     # TODO: return False, "wrong field count" if `parts` lacks 5 fields
