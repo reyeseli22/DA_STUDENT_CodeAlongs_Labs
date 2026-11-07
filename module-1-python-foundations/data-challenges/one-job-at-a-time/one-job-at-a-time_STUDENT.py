@@ -63,7 +63,7 @@ print(len(valid), "usable records out of", len(records))
 # that the category is not empty, 
 # and that the pounds field can be converted to a float. 
 # If any of these checks fail, it returns False and a reason; otherwise, it returns True and an empty string.                                                  
-
+print()
 
 # Step 2: Write `summarize_donations()` for the Category Breakdown Only
 def summarize_donations(valid_records):
