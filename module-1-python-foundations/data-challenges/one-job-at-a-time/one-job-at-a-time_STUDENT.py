@@ -57,13 +57,29 @@ for record in records:
         print("REJECTED", record.split(",")[0]+":", reason)
 print(len(valid), "usable records out of", len(records))
 # Step 1, answer 1:
-#
+# One record or row holds donation_id ,item,category ,pounds , and received_on
 # Step 1, answer 2:
-#
+# My validator promises to check that each record has 5 fields, 
+# that the category is not empty, 
+# and that the pounds field can be converted to a float. 
+# If any of these checks fail, it returns False and a reason; otherwise, it returns True and an empty string.                                                  
 
 
 # Step 2: Write `summarize_donations()` for the Category Breakdown Only
 def summarize_donations(valid_records):
+    """Summarize the donations by category."""
+    by_category = {}
+    total_pounds = 0.0
+    for items in valid_records:
+        parts = record.split(",")
+        category = parts[2]
+        pounds = float(parts[3])
+        if category not in by_category:
+            by_category[category] = {"donations": 0, "pounds": 0.0}
+        by_category[category]["donations"] += 1
+        by_category[category]["pounds"] += pounds
+        total_pounds += pounds
+    return {"records": len(valid_records), "total_pounds": total_pounds, "by_category": by_category}
     # TODO: add a one-sentence docstring naming its one job
     # TODO: assign `by_category` to {} and `total_pounds` to 0.0
     # TODO: loop over `valid_records`; split each record on commas into `parts`
