@@ -67,10 +67,10 @@ print(len(valid), "usable records out of", len(records))
 
 # Step 2: Write `summarize_donations()` for the Category Breakdown Only
 def summarize_donations(valid_records):
-    """Summarize the donations by category."""
+    """Summarize total pounds, record count, and donations by category."""
     by_category = {}
     total_pounds = 0.0
-    for items in valid_records:
+    for record in valid_records:
         parts = record.split(",")
         category = parts[2]
         pounds = float(parts[3])
@@ -89,18 +89,17 @@ def summarize_donations(valid_records):
     # TODO: add 1 to its "donations" and `pounds` to its "pounds"
     # TODO: add `pounds` to `total_pounds`
     # TODO: return a dict of "records", "total_pounds" and "by_category"
-    pass
-    summary = summarize_donations(valid)
-    print("records:", summary["records"], "| total pounds:", summary["total_pounds"])
-    for category, stats in summary["by_category"].items():
-        print(category, stats["donations"], "donations,", stats["pounds"], "lbs")
+    # TODO: assign `summary` to summarize_donations(valid)
+summary = summarize_donations(valid)
+print("records:", summary["records"], "| total pounds:",
+      summary["total_pounds"])
+for category, stats in summary["by_category"].items():
+    print(category, stats["donations"], "donations,", stats["pounds"],
+          "lbs")
+
 
 # TODO: assign `summary` to summarize_donations(valid)
-# print("records:", summary["records"], "| total pounds:",
-#       summary["total_pounds"])
-# for category, stats in summary["by_category"].items():
-#     print(category, stats["donations"], "donations,", stats["pounds"],
-#           "lbs")
+
 
 # Step 2, answer 1:
 #
