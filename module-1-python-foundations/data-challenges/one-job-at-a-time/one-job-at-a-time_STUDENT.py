@@ -90,7 +90,10 @@ def summarize_donations(valid_records):
     # TODO: add `pounds` to `total_pounds`
     # TODO: return a dict of "records", "total_pounds" and "by_category"
     pass
-
+    summary = summarize_donations(valid)
+    print("records:", summary["records"], "| total pounds:", summary["total_pounds"])
+    for category, stats in summary["by_category"].items():
+        print(category, stats["donations"], "donations,", stats["pounds"], "lbs")
 
 # TODO: assign `summary` to summarize_donations(valid)
 # print("records:", summary["records"], "| total pounds:",
