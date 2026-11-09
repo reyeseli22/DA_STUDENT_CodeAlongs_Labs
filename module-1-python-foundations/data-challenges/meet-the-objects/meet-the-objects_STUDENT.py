@@ -8,18 +8,26 @@ DATA_FILE = "bike_stations.json"  # edit the filepath with the data
 with open(DATA_FILE) as f:
     stations = json.load(f)
 
-
+# 1. 
 # ===== Day 1 =====
 
 # Step 1: Reproduce the Parallel-List Bug and Name the Wrong Stations
 # TODO: assign `names` and `bikes` to two empty lists
 # TODO: loop over `stations`; append each one's "name" to `names`
 # TODO: append the same station's "bikes_available" to `bikes`
-names.pop(2)
-
+# names.pop(2)
+names = []
+bikes = []
+for station in stations:
+    names.append(station["name"])
+    bikes.append(station["bikes_available"])
 print("stations in the file:", len(stations))
-# TODO: loop over range(len(names)); print names[i], "|", bikes[i], "bikes"
 
+names.pop(2)
+bikes.pop(2)
+# TODO: loop over range(len(names)); print names[i], "|", bikes[i], "bikes"
+for i in range(len(names)):
+    print(names[i], "|", bikes[i], "bikes")
 # Step 1, answer 1:
 #
 # Step 1, answer 2:
