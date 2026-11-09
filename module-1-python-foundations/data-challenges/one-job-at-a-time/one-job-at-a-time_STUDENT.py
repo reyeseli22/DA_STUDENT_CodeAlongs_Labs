@@ -102,20 +102,34 @@ for category, stats in summary["by_category"].items():
 
 
 # Step 2, answer 1:
-#
+# I hand counted grain, my result was 100 lbs total
+# The printed line reflects 80 lbs of grain. One line was not counted because pounds was not an int
 
 
 # ===== Day 2 =====
 
 # Step 3: Add `export_summary()` and `run_pipeline()`, Then Print Docstrings
 def export_summary(summary, path):
+    """Export the summary (dict) to a JSON file at the given path."""
+    with open(path, "w") as f:
+        json.dump(summary, f, indent=2)
+    return path
     # TODO: add a one-sentence docstring naming its one job
     # TODO: in a with open(path, "w") block, json.dump `summary`, indent=2
     # TODO: return `path`
-    pass
+    
 
 
 def run_pipeline(in_path, out_path, summarize):
+    """Runs the pipeline to read, validate, summarize and export"""
+    kept = []
+    for items in read_donations(in_path):
+        ok, reason = validate_donation(items)
+        if ok:
+            kept.append(items)
+    return export_summary(summarize(kept), out_path)
+
+
     # TODO: add a one-sentence docstring naming its one job
     # TODO: assign `kept` to [] and loop over read_donations(in_path)
     # TODO: append each record that validate_donation() passes to `kept`
@@ -123,14 +137,13 @@ def run_pipeline(in_path, out_path, summarize):
     pass
 
 
-# written = run_pipeline(DATA_FILE, "donation_summary.json",
-#                        summarize_donations)
+# written = run_pipeline(DATA_FILE, "donation_summary.json",summarize_donations)
 # print("wrote", written)
 # for func in [read_donations, validate_donation, summarize_donations,
 #              export_summary]:
 #     print(func.__name__ + ":", func.__doc__.splitlines()[0])
 
-# Step 3, answer 1:
+# # Step 3, answer 1:
 #
 # Step 3, answer 2:
 #
