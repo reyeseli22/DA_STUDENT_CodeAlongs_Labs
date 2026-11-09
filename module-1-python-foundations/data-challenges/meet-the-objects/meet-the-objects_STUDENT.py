@@ -29,9 +29,11 @@ bikes.pop(2)
 for i in range(len(names)):
     print(names[i], "|", bikes[i], "bikes")
 # Step 1, answer 1:
-#
+# In the bike_stations.json each record is a dict containing station id, name, capacity, bikes available and needs maintenance 
+# station id and name are str, capacity and bikes available are ints and needs maintenance is a bool. 
+# The data is stored in a list of dicts.
 # Step 1, answer 2:
-#
+# 
 # Step 1, answer 3:
 #
 
@@ -64,8 +66,8 @@ class Station:
 # ===== Day 2 =====
 
 # Step 3: Add `__str__` and Find Out Which of Four Prints It Changes
-print(fleet[0])
-print(fleet[:2])
+# print(fleet[0])
+# print(fleet[:2])
 
 
 # TODO: copy your Station class from Step 2 here
@@ -73,8 +75,8 @@ print(fleet[:2])
 # TODO: build it from self.name, self.bikes_available and self.capacity
 # TODO: rebuild `fleet` from this class with the same loop as Step 2
 
-print(fleet[0])
-print(fleet[:2])
+# print(fleet[0])
+# print(fleet[:2])
 
 # Step 3, answer 1:
 #
@@ -89,9 +91,9 @@ print(fleet[:2])
 # TODO: assign `van_list` to []; loop over `fleet`
 # TODO: append each station whose needs_restock() returns True to `van_list`
 
-print(van_list)
-for station in van_list:
-    print(station)
+# print(van_list)
+# for station in van_list:
+#     print(station)
 
 # Step 4, answer 1:
 #
