@@ -33,7 +33,7 @@ for i in range(len(names)):
 # station id and name are str, capacity and bikes available are ints and needs maintenance is a bool. 
 # The data is stored in a list of dicts.
 # Step 1, answer 2:
-# 
+# .pop(2) removes the value at the 2nd position or index 2
 # Step 1, answer 3:
 #
 
@@ -41,17 +41,33 @@ for i in range(len(names)):
 # Step 2: Define the Station Class and Prove Two Instances Are Independent
 class Station:
     # TODO: add __init__ with name (str), capacity and bikes_available (int)
+    def __init__(self, station_id, name, capacity, bikes_available, needs_maintenance):
     # TODO: in __init__, assign each parameter to self.<same name>
+        self.station_id = station_id
+        self.name = name
+        self.capacity = capacity
+        self.bikes_available = bikes_available
+        self.needs_maintenance = needs_maintenance
     # TODO: add a parameter and self.<name> for each extra field you agreed
     # TODO: add needs_restock(self): True if bikes_available < capacity / 4
-    pass
-
+    def needs_restock(self):
+        return self.bikes_available < self.capacity/4
+ 
 
 # TODO: assign `fleet` to []; loop over `stations` as `s`
-# TODO: append Station(s["name"], s["capacity"], s["bikes_available"])
+fleet = []
+for s in stations:
+    fleet.append(Station(s["station_id"], s["name"], s["capacity"], s["bikes_available"], s["needs_maintenance"]))
 # TODO: assign `busy`, `quiet` to two stations with equal needs_restock()
+busy = fleet[1]
+quiet = fleet[-1]
+print()
+print("Before:",busy.needs_restock(), quiet.needs_restock())
+print()
 # TODO: print both needs_restock() answers
 # TODO: set busy.bikes_available to 0, then print both answers again
+busy.bikes_available = 0 
+print("After:",busy.needs_restock(), quiet.needs_restock())
 
 # Step 2, answer 1:
 #
@@ -66,8 +82,26 @@ class Station:
 # ===== Day 2 =====
 
 # Step 3: Add `__str__` and Find Out Which of Four Prints It Changes
-# print(fleet[0])
-# print(fleet[:2])
+print(fleet[0])
+print(fleet[:2])
+
+class Station:
+    # TODO: add __init__ with name (str), capacity and bikes_available (int)
+    def __init__(self, station_id, name, capacity, bikes_available, needs_maintenance):
+    # TODO: in __init__, assign each parameter to self.<same name>
+        self.station_id = station_id
+        self.name = name
+        self.capacity = capacity
+        self.bikes_available = bikes_available
+        self.needs_maintenance = needs_maintenance
+    # TODO: add a parameter and self.<name> for each extra field you agreed
+    # TODO: add needs_restock(self): True if bikes_available < capacity / 4
+    def needs_restock(self):
+        return self.bikes_available < self.capacity/4
+def __str__(self):
+    return f"{self.name}:{self.bikes_available} of {self.capacity} bikes"
+
+
 
 
 # TODO: copy your Station class from Step 2 here
