@@ -130,7 +130,7 @@ print(fleet[:2])
 # Step 3, answer 2:
 #
 
-
+print()
 # Step 4: Add `__repr__` and Print the Van List for You and the Dispatcher
 # TODO: copy your Station class from Step 3 here   
 # TODO: add __repr__(self) to return text like "Station('Grand Army Plaza', 6)"
@@ -147,14 +147,15 @@ class Station:
     def needs_restock(self):
             return self.bikes_available < self.capacity/4
     def __repr__(self):
-        return f"{self.name}:{self.bikes_available} "
+        return f"Station({self.name!r}, {self.bikes_available}) "
 fleet = []
 for s in stations:
         fleet.append(Station(s["station_id"], s["name"], s["capacity"], s["bikes_available"], s["needs_maintenance"]))
 van_list = []
 for f in fleet:
-    van_list.append(f.needsrestock())
-    if 
+    if f.needs_restock():
+        van_list.append(f)
+   
 # print(van_list)
 # for station in van_list:
 #     print(station)
