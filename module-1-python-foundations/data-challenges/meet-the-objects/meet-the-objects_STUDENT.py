@@ -147,7 +147,7 @@ class Station:
     def needs_restock(self):
             return self.bikes_available < self.capacity/4
     def __repr__(self):
-        return f"{self.name}:{self.bikes_available} of {self.capacity} bikes"
+        return f"{self.name}:{self.bikes_available} "
 fleet = []
 for s in stations:
         fleet.append(Station(s["station_id"], s["name"], s["capacity"], s["bikes_available"], s["needs_maintenance"]))
