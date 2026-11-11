@@ -147,7 +147,7 @@ class Station:
     def needs_restock(self):
             return self.bikes_available < self.capacity/4
     def __repr__(self):
-        return f"Station({self.name!r}, {self.bikes_available}) "
+        return f"Station({self.name!r}, {self.bikes_available})"
     def __str__(self):
             return f"{self.name}: {self.bikes_available} of {self.capacity} bikes"
 fleet = []
