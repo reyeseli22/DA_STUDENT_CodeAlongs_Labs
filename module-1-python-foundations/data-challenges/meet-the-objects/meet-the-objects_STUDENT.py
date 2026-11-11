@@ -99,8 +99,8 @@ class Station:
     # TODO: add needs_restock(self): True if bikes_available < capacity / 4
     def needs_restock(self):
         return self.bikes_available < self.capacity/4
-def __str__(self):
-    return f"{self.name}:{self.bikes_available} of {self.capacity} bikes"
+    def __str__(self):
+        return f"{self.name}: {self.bikes_available} of {self.capacity} bikes"
 fleet = []
 for s in stations:
     fleet.append(Station(s["station_id"], s["name"], s["capacity"], s["bikes_available"], s["needs_maintenance"]))
@@ -148,6 +148,8 @@ class Station:
             return self.bikes_available < self.capacity/4
     def __repr__(self):
         return f"Station({self.name!r}, {self.bikes_available}) "
+    def __str__(self):
+            return f"{self.name}: {self.bikes_available} of {self.capacity} bikes"
 fleet = []
 for s in stations:
         fleet.append(Station(s["station_id"], s["name"], s["capacity"], s["bikes_available"], s["needs_maintenance"]))
@@ -155,10 +157,11 @@ van_list = []
 for f in fleet:
     if f.needs_restock():
         van_list.append(f)
-   
-# print(van_list)
-# for station in van_list:
-#     print(station)
+
+print
+print(van_list)
+for station in van_list:
+    print(station)
 
 # Step 4, answer 1:
 #
