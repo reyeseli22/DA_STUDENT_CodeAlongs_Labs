@@ -39,7 +39,7 @@ def validate_donation(record):
     # TODO: in a try, call float(parts[3])
     # TODO: in except ValueError, return False, "pounds is not a number"
     # TODO: return True and ""
-    pass
+    
 
 
 # TODO: assign `records` to read_donations(DATA_FILE), `valid` to []
@@ -134,14 +134,14 @@ def run_pipeline(in_path, out_path, summarize):
     # TODO: assign `kept` to [] and loop over read_donations(in_path)
     # TODO: append each record that validate_donation() passes to `kept`
     # TODO: return export_summary() of summarize(kept) and `out_path`
-    pass
 
 
-# written = run_pipeline(DATA_FILE, "donation_summary.json",summarize_donations)
-# print("wrote", written)
-# for func in [read_donations, validate_donation, summarize_donations,
-#              export_summary]:
-#     print(func.__name__ + ":", func.__doc__.splitlines()[0])
+
+written = run_pipeline(DATA_FILE, "donation_summary.json",summarize_donations)
+print("wrote", written)
+for func in [read_donations, validate_donation, summarize_donations,
+             export_summary]:
+    print(func.__name__ + ":", func.__doc__.splitlines()[0])
 
 # # Step 3, answer 1:
 #
