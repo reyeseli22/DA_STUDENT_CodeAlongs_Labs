@@ -49,6 +49,15 @@ SUBMIT
 # paragraph.
 
 # TODO: Write __init__ and a Method, From Scratch
+class Tool_Tracker:
+    def __init__(self, name, tool_id, chckout_date, total_amt, avail,needs_check, passed_check):
+        self.name = name 
+        self.tool_id = tool_id
+        self.chckout_date = chckout_date
+        self.total_amt = total_amt
+        self.avail = avail
+        self.needs_check = needs_check 
+        self.passed_check = passed_check
 
 # ===== Step 4: Instantiate 2+ Objects, Confirm Independent Storage =====
 # The same proof Day 13's lecture asked for, now on a class you designed
