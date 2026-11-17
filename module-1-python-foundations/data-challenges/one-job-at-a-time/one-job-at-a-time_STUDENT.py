@@ -92,12 +92,8 @@ def export_summary(summary, path):
     with open(path, "w") as f:
         json.dump(summary, f, indent=2)
     return path
-    # TODO: add a one-sentence docstring naming its one job
-    # TODO: in a with open(path, "w") block, json.dump `summary`, indent=2
-    # TODO: return `path`
+  
     
-
-
 def run_pipeline(in_path, out_path, summarize):
     """Runs the pipeline to read, validate, summarize and export"""
     kept = []
@@ -108,10 +104,6 @@ def run_pipeline(in_path, out_path, summarize):
     return export_summary(summarize(kept), out_path)
 
 
-    # TODO: add a one-sentence docstring naming its one job
-    # TODO: assign `kept` to [] and loop over read_donations(in_path)
-    # TODO: append each record that validate_donation() passes to `kept`
-    # TODO: return export_summary() of summarize(kept) and `out_path`
 
 
 
@@ -120,19 +112,37 @@ print("wrote", written)
 for func in [read_donations, validate_donation, summarize_donations,
              export_summary]:
     print(func.__name__ + ":", func.__doc__.splitlines()[0])
+print()
+print(len)
+print(len("abc"))
 
 # # Step 3, answer 1:
-# 
+# print(len) gave us <built-in function len>
+# print(len("abc")) gave us 3 
+# Parenthesis are used to call a function and pass arguments through if necessary 
 # Step 3, answer 2:
-# 
+# Yes, the run_pipeline function needs and twice because it has to call the 3 functions we made previous to it
 
 
 # Step 4: Swap In `summarize_by_day()` and Count the Functions You Edited
 def summarize_by_day(valid_records):
-    ''''''
+    '''Calculates total pounds donated each day'''
+    by_day = {}
+    total_pounds = 0.0
+    for record in valid_records:
+            parts = record.split(",")
+            day = parts[4]
+            pounds = float(parts[3])
+            if day not in by_day:
+                by_day[day] = {"donations": 0, "pounds": 0.0}
+            by_day[day]["donations"] += 1
+            by_day[day]["pounds"] += pounds
+            total_pounds += pounds
+    return {"records": len(valid_records), "total_pounds": total_pounds, "by_day": by_day}
+    
     # TODO: add a one-sentence docstring naming its one job
     # TODO: return the same dict shape, with "by_day" keyed by parts[4]
-    pass
+   
 
 
 # TODO: call run_pipeline(DATA_FILE, "donation_summary.json", summarize_by_day)
