@@ -147,12 +147,14 @@ def summarize_by_day(valid_records):
 
 # TODO: call run_pipeline(DATA_FILE, "donation_summary.json", summarize_by_day)
 # TODO: replace None with json.load() of "donation_summary.json"
-# reloaded = None
+run_pipeline(DATA_FILE, "donation_summary.json", summarize_by_day)
+with open("donation_summary.json") as f:
+    reloaded = json.load(f)
 
-# print("records:", reloaded["records"], "| total pounds:",
-#       reloaded["total_pounds"])
-# for day, stats in sorted(reloaded["by_day"].items()):
-#     print(day, stats["donations"], "donations,", stats["pounds"], "lbs")
+print("records:", reloaded["records"], "| total pounds:",
+      reloaded["total_pounds"])
+for day, stats in sorted(reloaded["by_day"].items()):
+    print(day, stats["donations"], "donations,", stats["pounds"], "lbs")
 
 # Step 4, answer 1:
 #
