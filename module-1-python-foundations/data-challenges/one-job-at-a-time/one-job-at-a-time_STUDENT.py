@@ -144,13 +144,14 @@ for func in [read_donations, validate_donation, summarize_donations,
     print(func.__name__ + ":", func.__doc__.splitlines()[0])
 
 # # Step 3, answer 1:
-#
+# 
 # Step 3, answer 2:
-#
+# 
 
 
 # Step 4: Swap In `summarize_by_day()` and Count the Functions You Edited
 def summarize_by_day(valid_records):
+    ''''''
     # TODO: add a one-sentence docstring naming its one job
     # TODO: return the same dict shape, with "by_day" keyed by parts[4]
     pass
