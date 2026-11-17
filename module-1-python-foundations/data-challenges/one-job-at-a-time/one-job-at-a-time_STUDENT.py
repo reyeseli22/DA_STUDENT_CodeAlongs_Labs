@@ -77,7 +77,6 @@ for category, stats in summary["by_category"].items():
           "lbs")
 
 
-# TODO: assign `summary` to summarize_donations(valid)
 
 
 # Step 2, answer 1:
