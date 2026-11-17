@@ -32,21 +32,35 @@ SUBMIT
 # Any class works: your own from Day 15's lab, a new one, or the sample
 # LibraryTool on today's slides.
 
+from asyncio import tools
 import random  # Python's built-in module for random values
 
 # TODO: paste your class here (or the sample LibraryTool from the slides)
+class LibraryTool:
+    def __init__(self, tool_name, quantity_available, requires_inspection):
+        self.tool_name = tool_name
+        self.quantity_available = quantity_available
+        self.requires_inspection = requires_inspection
 
+    def is_available(self):
+        return self.quantity_available > 0
 
-def make_batch(size):
     # TODO: make an empty list called batch
     # TODO: loop `size` times with: for i in range(size):
     # TODO: inside the loop, create one object and append it to batch
     # TODO: give each object a unique name, e.g. f"Tool{i}"
     # TODO: use random.randint(0, 5) for any number attribute
     # TODO: after the loop, return batch
-    pass
+    batch = []
+
+    for i in range():
+        batch.append()
 
 
+small_batch = make_batch(10)
+medium_batch = make_batch(1,000)
+large_batch = make_batch(100,000)
+print(len(small_batch), len(medium_batch), len(large_batch))
 # TODO: small_batch = make_batch(10)
 # TODO: make medium_batch (1,000) and large_batch (100,000) the same way
 # TODO: print len() of all three batches to check their sizes
@@ -56,6 +70,11 @@ def make_batch(size):
 # own class and a much bigger batch.
 
 def find_by_name_linear(batch, name):
+    for tool in batch:
+        if tool.tool_name == name:
+            return tool
+    return None
+
     # TODO: loop over batch, one object at a time
     # TODO: if the object's name equals name, return the object
     # TODO: after the loop, return None (nothing matched)
@@ -63,11 +82,14 @@ def find_by_name_linear(batch, name):
 
 
 def build_lookup(batch):
+    return {tool.tool_name: tool for tool in tools}
     # TODO: return a dict: {obj.name: obj for obj in batch}
     # TODO: (use your class's real name attribute, e.g. tool_name)
-    pass
+    
 
-
+lookup = build_lookup(large_batch)
+print(find_by_name_linear(large_batch, "Tool 99999").toolname)
+print(lookup.get("Tool 99999").tool_name)
 # TODO: lookup = build_lookup(large_batch)
 # TODO: pick a name you know is in large_batch, like "Tool99999"
 # TODO: print what find_by_name_linear returns for that name
