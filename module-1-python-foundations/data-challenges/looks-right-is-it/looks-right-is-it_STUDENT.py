@@ -30,7 +30,7 @@ def weekly_hours(lines, emp_id):
 
 
 print("Rosa Alvarez, weekly hours:", weekly_hours(lines, "E101"))
-
+print()
 # Step 1, answer 1:
 #
 # Step 1, answer 2:
@@ -59,7 +59,7 @@ for emp_id in staff:
     days = days_worked(lines, emp_id)
     print(emp_id, "| hours:", hours, "| days:", days,
           "| average per day:", hours / days)
-
+print()
 # Step 2, answer 1:
 #
 # Step 2, answer 2:
@@ -94,7 +94,7 @@ for emp in employee_ids:
             name = r["name"]
             total = total + r["hours"]
     print(emp, name, "| weekly hours:", total)
-
+print()
 # Step 3, answer 1:
 #
 # Step 3, answer 2:
@@ -132,7 +132,7 @@ for emp in employee_ids:
 
 print("employees owed overtime:", owed_overtime)
 print(f"TOTAL PAYROLL: ${payroll:,.2f}")
-
+print()
 # Step 4, answer 1:
 #
 # Step 4, answer 2:
