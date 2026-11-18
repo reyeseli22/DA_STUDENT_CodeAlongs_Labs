@@ -85,7 +85,7 @@ for category, stats in summary["by_category"].items():
 
 
 # ===== Day 2 =====
-
+print()
 # Step 3: Add `export_summary()` and `run_pipeline()`, Then Print Docstrings
 def export_summary(summary, path):
     """Export the summary (dict) to a JSON file at the given path."""
@@ -112,9 +112,7 @@ print("wrote", written)
 for func in [read_donations, validate_donation, summarize_donations,
              export_summary]:
     print(func.__name__ + ":", func.__doc__.splitlines()[0])
-print()
-print(len)
-print(len("abc"))
+
 
 # # Step 3, answer 1:
 # print(len) gave us <built-in function len>
@@ -123,7 +121,7 @@ print(len("abc"))
 # Step 3, answer 2:
 # Yes, the run_pipeline function needs and twice because it has to call the 3 functions we made previous to it
 
-
+print()
 # Step 4: Swap In `summarize_by_day()` and Count the Functions You Edited
 def summarize_by_day(valid_records):
     '''Calculates total pounds donated each day'''
@@ -140,13 +138,7 @@ def summarize_by_day(valid_records):
             total_pounds += pounds
     return {"records": len(valid_records), "total_pounds": total_pounds, "by_day": by_day}
     
-    # TODO: add a one-sentence docstring naming its one job
-    # TODO: return the same dict shape, with "by_day" keyed by parts[4]
    
-
-
-# TODO: call run_pipeline(DATA_FILE, "donation_summary.json", summarize_by_day)
-# TODO: replace None with json.load() of "donation_summary.json"
 run_pipeline(DATA_FILE, "donation_summary.json", summarize_by_day)
 with open("donation_summary.json") as f:
     reloaded = json.load(f)
@@ -157,6 +149,7 @@ for day, stats in sorted(reloaded["by_day"].items()):
     print(day, stats["donations"], "donations,", stats["pounds"], "lbs")
 
 # Step 4, answer 1:
-#
+# I did not edit any other functions for the swap, 
 # Step 4, answer 2:
-#
+# The 3 dates where only 1 donation is shown, 
+# are instances where the other line was dropped because it did not pass validation.
