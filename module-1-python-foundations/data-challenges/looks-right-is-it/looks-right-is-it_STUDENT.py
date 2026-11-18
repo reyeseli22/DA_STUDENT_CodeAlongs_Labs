@@ -17,6 +17,7 @@ with open(DATA_FILE) as f:
 # TODO: wrap that value in int() so add_hours() adds a number
 # TODO: delete the print(repr(hours)) line once Rosa's total is right
 def add_hours(total, hours):
+    print(repr(hours))
     return total + hours
 
 
