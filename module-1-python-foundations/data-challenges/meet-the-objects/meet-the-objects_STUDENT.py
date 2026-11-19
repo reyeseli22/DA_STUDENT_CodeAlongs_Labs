@@ -60,7 +60,7 @@ class Station:
     # TODO: add needs_restock(self): True if bikes_available < capacity / 4
     def needs_restock(self):
         return self.bikes_available < self.capacity/4
- 
+
 
 # TODO: assign `fleet` to []; loop over `stations` as `s`
 fleet = []
@@ -83,9 +83,14 @@ print(busy.name, busy.bikes_available, "of", busy.capacity)
 print("After:",busy.needs_restock(), quiet.needs_restock())
 
 # Step 2, answer 1:
-#
+# def __init__(self, station_id, name, capacity, bikes_available, needs_maintenance)
+# self.station_id = station_id
+        # self.name = name
+        # self.capacity = capacity
+        # self.bikes_available = bikes_available
+        # self.needs_maintenance = needs_maintenance
 # Step 2, answer 2:
-# 
+# Our two lists deffered in spellings and names, we kept my list as it seemed more industry standard.
 # Step 2, answer 3:
 #I did not leave any field from the file out, all are necessary to the dispatchers analysis
 # Step 2, answer 4:
@@ -97,8 +102,7 @@ print("After:",busy.needs_restock(), quiet.needs_restock())
 
 # Step 3: Add `__str__` and Find Out Which of Four Prints It Changes
 print()
-print(fleet[0])
-print(fleet[:2])
+
 
 class Station:
     # TODO: add __init__ with name (str), capacity and bikes_available (int)
@@ -118,6 +122,9 @@ class Station:
 fleet = []
 for s in stations:
     fleet.append(Station(s["station_id"], s["name"], s["capacity"], s["bikes_available"], s["needs_maintenance"]))
+
+print(fleet[0])
+print(fleet[:2])
 # TODO: assign `busy`, `quiet` to two stations with equal needs_restock()
 
 # TODO: print both needs_restock() answers
@@ -130,14 +137,15 @@ for s in stations:
 # TODO: add __str__(self) to return text like "Grand Army Plaza: 6 of 48 bikes"
 # TODO: build it from self.name, self.bikes_available and self.capacity
 # TODO: rebuild `fleet` from this class with the same loop as Step 2
-
-print(fleet[0])
-print(fleet[:2])
+print()
+print(str(fleet[0]))
+print(repr(fleet[0]))
 
 # Step 3, answer 1:
-# 
+# I expect: False False
+#           True False
 # Step 3, answer 2:
-#
+# No prediction was wrong, a list uses  __rpr__ instead of __str__
 
 print()
 # Step 4: Add `__repr__` and Print the Van List for You and the Dispatcher
