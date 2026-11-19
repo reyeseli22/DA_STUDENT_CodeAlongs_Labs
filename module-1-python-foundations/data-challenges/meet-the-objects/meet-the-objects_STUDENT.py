@@ -162,27 +162,36 @@ class Station:
         self.bikes_available = bikes_available
         self.needs_maintenance = needs_maintenance
     def needs_restock(self):
-            return self.bikes_available < self.capacity/4
+        return self.bikes_available < self.capacity/4
     def __repr__(self):
         return f"Station({self.name!r}, {self.bikes_available})"
     def __str__(self):
-            return f"{self.name}: {self.bikes_available} of {self.capacity} bikes"
+        return f"{self.name}: {self.bikes_available} of {self.capacity} bikes"
 fleet = []
 for s in stations:
-        fleet.append(Station(s["station_id"], s["name"], s["capacity"], s["bikes_available"], s["needs_maintenance"]))
+    fleet.append(Station(s["station_id"], s["name"], s["capacity"], s["bikes_available"], s["needs_maintenance"]))
 van_list = []
 for f in fleet:
     if f.needs_restock():
         van_list.append(f)
 
-print
+busy = fleet[1]
+quiet = fleet[-1]
+print("Before", busy.needs_restock(), quiet.needs_restock())
+busy.bikes_available = 0 
+print("After", busy.needs_restock(), quiet.needs_restock())
+
+print(fleet[0])
+print(fleet[:2])
+
 print(van_list)
 for station in van_list:
     print(station)
 
 # Step 4, answer 1:
-#
+# I predict 6 stations will land in van_list and print(van_list) will use __rpr__
 # Step 4, answer 2:
-#
+#__rpr__ is used by programmers and developers and shows all syntax and how it was created
+#__str__ is for layman readability and digestion
 # Step 4, answer 3:
-#
+# I would hand the dispatcher the printout using __str__ because he is not a programmer and would benefit from the extra readability.
