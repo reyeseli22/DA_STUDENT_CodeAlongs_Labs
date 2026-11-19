@@ -7,6 +7,7 @@ with open(DATA_FILE) as f:
     lines = f.read().splitlines()
 
 
+
 # ===== Day 1 =====
 
 # Step 1: Follow the TypeError in `weekly_hours()` Back to Its Cause
@@ -26,7 +27,7 @@ def weekly_hours(lines, emp_id):
     for row in lines[1:]:
         parts = row.split(",")
         if parts[0] == emp_id:
-            total = add_hours(total, parts[2])
+            total = add_hours(total, hours(parts[3]))
     return total
 
 
