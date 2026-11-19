@@ -22,21 +22,29 @@ for station in stations:
     names.append(station["name"])
     bikes.append(station["bikes_available"])
 print("stations in the file:", len(stations))
-
+print()
 names.pop(2)
 bikes.pop(2)
 # TODO: loop over range(len(names)); print names[i], "|", bikes[i], "bikes"
 for i in range(len(names)):
     print(names[i], "|", bikes[i], "bikes")
+
+# print()
+
+# for i in range(len(stations)):
+#     print(stations[i]["name"], stations[i]["bikes_available"])
+# ^ Written to compare whats missing
+
 # Step 1, answer 1:
 # In the bike_stations.json each record is a dict containing station id, name, capacity, bikes available and needs maintenance 
 # station id and name are str, capacity and bikes available are ints and needs maintenance is a bool. 
 # The data is stored in a list of dicts.
 # Step 1, answer 2:
-# .pop(2) removes the value at the 2nd position or index 2
+# .pop(2) removes the value at the 2nd index
 # Step 1, answer 3:
-#
-
+# No stations got a bike count that isnt theirs.
+# Nobody sees the real count of w 52nd st and 11th ave, because we removed it with .pop(2) on names and bikes
+print()
 
 # Step 2: Define the Station Class and Prove Two Instances Are Independent
 class Station:
@@ -61,22 +69,28 @@ for s in stations:
 # TODO: assign `busy`, `quiet` to two stations with equal needs_restock()
 busy = fleet[1]
 quiet = fleet[-1]
+
+print(busy.name, busy.bikes_available, "of", busy.capacity)
+print(quiet.name, quiet.bikes_available, "of", quiet.capacity)
+
 print()
 print("Before:",busy.needs_restock(), quiet.needs_restock())
 print()
 # TODO: print both needs_restock() answers
 # TODO: set busy.bikes_available to 0, then print both answers again
 busy.bikes_available = 0 
+print(busy.name, busy.bikes_available, "of", busy.capacity)
 print("After:",busy.needs_restock(), quiet.needs_restock())
 
 # Step 2, answer 1:
 #
 # Step 2, answer 2:
-#
+# 
 # Step 2, answer 3:
-#
+#I did not leave any field from the file out, all are necessary to the dispatchers analysis
 # Step 2, answer 4:
-#
+# Flatbush had 29 of 31 which is not inder the needs_restock threshold. 
+# Amsterdam Ave had 33 of 25, again not meeting the needs_restock
 
 
 # ===== Day 2 =====
@@ -105,15 +119,10 @@ fleet = []
 for s in stations:
     fleet.append(Station(s["station_id"], s["name"], s["capacity"], s["bikes_available"], s["needs_maintenance"]))
 # TODO: assign `busy`, `quiet` to two stations with equal needs_restock()
-busy = fleet[1]
-quiet = fleet[-1]
-print()
-print("Before:",busy.needs_restock(), quiet.needs_restock())
-print()
+
 # TODO: print both needs_restock() answers
 # TODO: set busy.bikes_available to 0, then print both answers again
-busy.bikes_available = 0 
-print("After:",busy.needs_restock(), quiet.needs_restock())
+
 
 
 
@@ -126,7 +135,7 @@ print(fleet[0])
 print(fleet[:2])
 
 # Step 3, answer 1:
-#
+# 
 # Step 3, answer 2:
 #
 
