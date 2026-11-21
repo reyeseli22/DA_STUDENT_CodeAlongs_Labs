@@ -90,8 +90,8 @@ def export_summary(summary, path):
     with open(path, "w") as f:
         json.dump(summary, f, indent=2)
     return path
-  
-    
+
+
 def run_pipeline(in_path, out_path, summarize):
     """Runs the pipeline to read, validate, summarize and export"""
     kept = []
