@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Looks Right. Is It?: see DataChallengeOverview&Steps.md for the steps."""
 
-DATA_FILE = "timesheet_hours.csv"  # edit the filepath with the data
+DATA_FILE = "/Users/Marcy_Student/Documents/Marcy/DA_STUDENT_CodeAlongs_Labs/module-1-python-foundations/data-challenges/looks-right-is-it/timesheet_hours.csv"  # edit the filepath with the data
 
 with open(DATA_FILE) as f:
     lines = f.read().splitlines()
@@ -18,7 +18,7 @@ with open(DATA_FILE) as f:
 # TODO: wrap that value in int() so add_hours() adds a number
 # TODO: delete the print(repr(hours)) line once Rosa's total is right
 def add_hours(total, hours):
-    print(repr(hours))
+    # print(repr(hours))
     return total + hours
 
 
