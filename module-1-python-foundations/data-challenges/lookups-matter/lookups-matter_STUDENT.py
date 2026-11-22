@@ -17,10 +17,7 @@ def find_linear(members, member_id):
         comparisons += 1
         if row["member_id"] == member_id:
             return row,comparisons
-    # TODO: assign `comparisons` to 0
-    # TODO: loop over `members`; add 1 to `comparisons` for every row
-    # TODO: inside the loop, return row, comparisons on a member_id match
-    # TODO: after the loop, return None, comparisons
+    
     return None, comparisons
 
 
@@ -36,13 +33,6 @@ print("comparisons:", count)
 
 
 # Step 2: Total the Comparisons for All 20 Swipes in `door_checkins.txt`
-# TODO: open CHECKINS_FILE in a with block as `f`
-# TODO: inside it, assign `swipes` to f.read().splitlines()
-# TODO: assign `linear_total` and `not_members` to 0
-# TODO: loop over `swipes`; call find_linear(members, member_id)
-# TODO: print the ID, the name or "NOT A MEMBER", and the comparisons
-# TODO: add each count to `linear_total`
-# TODO: add 1 to `not_members` for every swipe with no row
 
 with open(CHECKINS_FILE) as f:
     swipes = f.read().splitlines()
@@ -83,11 +73,7 @@ def find_dict(members_by_id, member_id):
     return members_by_id.get(member_id), 1
 
 
-# TODO: assign `members_by_id` to an empty dict and `build_steps` to 0
-# TODO: loop over `members`; store each row under row["member_id"]
-# TODO: add 1 to `build_steps` for every row
-# TODO: write find_dict(members_by_id, member_id)
-# TODO: make find_dict() return members_by_id.get(member_id), 1
+
 
 print("build cost:", build_steps, "| keys in the dict:", len(members_by_id))
 linear_running = 0
@@ -96,11 +82,10 @@ pays_off_at = None
 swipe_number = 0
 
 print()
-# TODO: assign `linear_running` to 0 and `dict_running` to build_steps
-# TODO: assign `pays_off_at` to None and `swipe_number` to 0
+
 for member_id in swipes:
     swipe_number += 1
-# TODO: add 1 to `swipe_number`
+
     _, linear_count = find_linear(members, member_id)
     _, dict_count = find_dict(members_by_id, member_id)
     linear_running += linear_count
@@ -109,9 +94,7 @@ for member_id in swipes:
     
     if pays_off_at is None and dict_running < linear_running:
         pays_off_at = swipe_number
-#     # TODO: add each search's count to its running total
-#     # TODO: print swipe_number, the ID and both running totals
-#     # TODO: the first time dict_running < linear_running, set `pays_off_at`
+
 
 print("dict pays off at swipe:", pays_off_at)
 print("morning totals | linear:", linear_running, "| dict:", dict_running)
@@ -128,8 +111,7 @@ print("morning totals | linear:", linear_running, "| dict:", dict_running)
 # If there were a morning where only 5 swipes were recorded, the dict wouldnt be worth it.
 
 
-# Step 4: Test an AI Speed Claim Against Your Totals and Write a Verdict
-# TODO: replace the text below with your AI's claim, word for word
+
 ai_claim = """For a list of 312 rows, a linear search checks rows one at a time. A dict lookup uses a hash and takes about 1 step.
 First lookup alone: it depends on where the ID sits. On average a linear search checks about 156 rows (half the list), so the dict is roughly 156x fewer steps. If the ID is near the front, the gap is much smaller.
 ID not in the list: linear search must check all 312 rows, and the dict answers in 1 step, so about 312x.
@@ -137,19 +119,17 @@ All 20 lookups: about 20 x 156 = 3,120 linear steps versus 20 dict steps, so rou
 No. Those numbers compare only the lookups. Building the dict costs about 312 steps (one per row). Including that, the dict total is about 332 steps versus about 3,120 for linear, so the speedup for the whole morning is closer to 9x, not 156x."""
 print("AI CLAIM:", ai_claim)
 
-# # TODO: unpack find_linear() for swipes[0] into `_, front_count`
-# # TODO: unpack find_linear() for "M1313" into `_, absent_count`
-# # TODO: assign `ratio` to round(linear_running / dict_running, 1)
 
-_, front_count = find_linear(swipes[0])
-_, absent_count = find_linear("M1313")
+
+_, front_count = find_linear(members, swipes[0])
+_, absent_count = find_linear(members,"M1313")
 ratio = round(linear_running / dict_running, 1)
 
 print("one front-of-file swipe | linear:", front_count, "| dict: 1")
 print("one non-member swipe | linear:", absent_count, "| dict: 1")
 print("whole morning | linear:", linear_running, "| dict:", dict_running,"| ratio:", ratio)
 
-# # TODO: replace the text below with your own verdict
+
 verdict = """O(n) is the way find_linear grows, the work scales with the quantity of roles 
 O(1) Average-Case is the way find_dict operates. One step per search
 from lines 1 - 5 dict search consistently grows 1 step at time while linear search grows by the items position"""
