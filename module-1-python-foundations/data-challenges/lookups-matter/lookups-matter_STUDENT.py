@@ -3,7 +3,7 @@
 
 import csv
 
-DATA_FILE = "member_directory.csv"  # edit the filepath with the data
+DATA_FILE = "/Users/Marcy_Student/Documents/Marcy/DA_STUDENT_CodeAlongs_Labs/module-1-python-foundations/data-challenges/lookups-matter/member_directory.csv"  # edit the filepath with the data
 CHECKINS_FILE = "door_checkins.txt"  # edit the filepath with the data
 
 with open(DATA_FILE, newline="") as f:
@@ -12,11 +12,17 @@ with open(DATA_FILE, newline="") as f:
 
 # Step 1: Write `find_linear()` to Return the Member and Its Comparisons
 def find_linear(members, member_id):
+    comparisons = 0
+    for row in members:
+        comparisons += 1
+        if row["member_id"] == member_id:
+            return row,comparisons
     # TODO: assign `comparisons` to 0
     # TODO: loop over `members`; add 1 to `comparisons` for every row
     # TODO: inside the loop, return row, comparisons on a member_id match
     # TODO: after the loop, return None, comparisons
-    pass
+    return None, comparisons
+
 
 
 row, count = find_linear(members, "M1150")
@@ -25,7 +31,8 @@ print("found:", row["name"], "at", row["home_branch"])
 print("comparisons:", count)
 
 # Step 1, answer 1:
-#
+# I predict 150 for M1150, I got this by inferring that member_id increments by 1
+# each id begins with 1 so M1150 shold be the 150th position
 
 
 # Step 2: Total the Comparisons for All 20 Swipes in `door_checkins.txt`
