@@ -4,7 +4,7 @@
 import csv
 
 DATA_FILE = "/Users/Marcy_Student/Documents/Marcy/DA_STUDENT_CodeAlongs_Labs/module-1-python-foundations/data-challenges/lookups-matter/member_directory.csv"  # edit the filepath with the data
-CHECKINS_FILE = "door_checkins.txt"  # edit the filepath with the data
+CHECKINS_FILE = "/Users/Marcy_Student/Documents/Marcy/DA_STUDENT_CodeAlongs_Labs/module-1-python-foundations/data-challenges/lookups-matter/door_checkins.txt"  # edit the filepath with the data
 
 with open(DATA_FILE, newline="") as f:
     members = list(csv.DictReader(f))
@@ -44,8 +44,8 @@ print("comparisons:", count)
 # TODO: add each count to `linear_total`
 # TODO: add 1 to `not_members` for every swipe with no row
 
-print("swipes:", len(swipes), "| not members:", not_members)
-print("linear total comparisons:", linear_total)
+# print("swipes:", len(swipes), "| not members:", not_members)
+# print("linear total comparisons:", linear_total)
 
 # Step 2, answer 1:
 #
@@ -60,20 +60,20 @@ print("linear total comparisons:", linear_total)
 # TODO: write find_dict(members_by_id, member_id)
 # TODO: make find_dict() return members_by_id.get(member_id), 1
 
-print("build cost:", build_steps, "| keys in the dict:", len(members_by_id))
+# print("build cost:", build_steps, "| keys in the dict:", len(members_by_id))
 
 # TODO: assign `linear_running` to 0 and `dict_running` to build_steps
 # TODO: assign `pays_off_at` to None and `swipe_number` to 0
-for member_id in swipes:
+# for member_id in swipes:
     # TODO: add 1 to `swipe_number`
-    _, linear_count = find_linear(members, member_id)
-    _, dict_count = find_dict(members_by_id, member_id)
-    # TODO: add each search's count to its running total
-    # TODO: print swipe_number, the ID and both running totals
-    # TODO: the first time dict_running < linear_running, set `pays_off_at`
+#     _, linear_count = find_linear(members, member_id)
+#     _, dict_count = find_dict(members_by_id, member_id)
+#     # TODO: add each search's count to its running total
+#     # TODO: print swipe_number, the ID and both running totals
+#     # TODO: the first time dict_running < linear_running, set `pays_off_at`
 
-print("dict pays off at swipe:", pays_off_at)
-print("morning totals | linear:", linear_running, "| dict:", dict_running)
+# print("dict pays off at swipe:", pays_off_at)
+# print("morning totals | linear:", linear_running, "| dict:", dict_running)
 
 # Step 3, answer 1:
 #
@@ -85,23 +85,23 @@ print("morning totals | linear:", linear_running, "| dict:", dict_running)
 
 # Step 4: Test an AI Speed Claim Against Your Totals and Write a Verdict
 # TODO: replace the text below with your AI's claim, word for word
-ai_claim = "TODO: paste what your AI actually told you"
-print("AI CLAIM:", ai_claim)
+# ai_claim = "TODO: paste what your AI actually told you"
+# print("AI CLAIM:", ai_claim)
 
-# TODO: unpack find_linear() for swipes[0] into `_, front_count`
-# TODO: unpack find_linear() for "M1313" into `_, absent_count`
-# TODO: assign `ratio` to round(linear_running / dict_running, 1)
+# # TODO: unpack find_linear() for swipes[0] into `_, front_count`
+# # TODO: unpack find_linear() for "M1313" into `_, absent_count`
+# # TODO: assign `ratio` to round(linear_running / dict_running, 1)
 
-print("one front-of-file swipe | linear:", front_count, "| dict: 1")
-print("one non-member swipe | linear:", absent_count, "| dict: 1")
-print("whole morning | linear:", linear_running, "| dict:", dict_running,
-      "| ratio:", ratio)
+# print("one front-of-file swipe | linear:", front_count, "| dict: 1")
+# print("one non-member swipe | linear:", absent_count, "| dict: 1")
+# print("whole morning | linear:", linear_running, "| dict:", dict_running,
+#       "| ratio:", ratio)
 
-# TODO: replace the text below with your own verdict
-verdict = "REPLACE ME"
-print("VERDICT:", verdict)
+# # TODO: replace the text below with your own verdict
+# verdict = "REPLACE ME"
+# print("VERDICT:", verdict)
 
-# Step 4, answer 1:
-#
-# Step 4, answer 2:
-#
+# # Step 4, answer 1:
+# #
+# # Step 4, answer 2:
+# #
