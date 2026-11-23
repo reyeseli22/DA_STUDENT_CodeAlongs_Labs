@@ -11,12 +11,7 @@ with open(DATA_FILE) as f:
 # ===== Day 1 =====
 
 # Step 1: Follow the TypeError in `weekly_hours()` Back to Its Cause
-# TODO: run the file as given and read the traceback from the bottom up
-# TODO: add print(repr(hours)) as the first line of add_hours(); run again
-# TODO: find that printed value in the CSV
-# TODO: fix the line that reads the wrong column to read the hours column
-# TODO: wrap that value in int() so add_hours() adds a number
-# TODO: delete the print(repr(hours)) line once Rosa's total is right
+
 def add_hours(total, hours):
     print(repr(hours))
     return total + hours
@@ -46,14 +41,11 @@ print()
 
 
 # Step 2: Trace the ZeroDivisionError Back to the Hand-Typed Staff List
-# TODO: run the file as given; note the last ID that printed
+
 # E103 was the last ID to print before the error "E103 | hours: 32 | days: 5 | average per day: 6.4"
 # 5 unique employee names are in the csv
 # E106 is present in the staff list, no such employee_id is present in csv
-# TODO: compare every ID in `staff` with the IDs in the CSV
-# TODO: replace the hand-typed `staff` list with an empty list
-# TODO: loop over lines[1:]; append each row's employee ID to `staff` once
-# TODO: print "employees in the file:" and len(staff)
+
 def days_worked(lines, emp_id):
     days = 0
     for row in lines[1:]:
@@ -86,13 +78,11 @@ print("Employees in staff :", len(staff))
 # ===== Day 2 =====
 
 # Step 3: Find Why Four of the Five Weekly Hour Totals Are Wrong
-# TODO: add up Rosa's (E101) and Mei's (E103) hours by hand first
+
 # (By Hand Totals)
 # Rosa's hours (E101): 40 
 # Mei's hours (E103): 32
-# TODO: print("starting", emp, "total is", total) first in the outer loop
-# TODO: move the line that sets `total` inside the outer loop
-# TODO: delete the "starting" print once all five totals are right
+
 
 records = []
 for row in lines[1:]:
@@ -128,12 +118,11 @@ print()
 
 
 # Step 4: Fix Two Overtime Bugs That Overpay the Firm by $1,810 a Week
-# TODO: work out Rosa's, Darnell's and Mei's pay by hand first
+
 # Rosa's (E101) pay: 40 hrs : $24/hr : $960 x 3 = $2,880
 # Darnell's (E102) pay: 46 hrs(6hrs OT): Base:$31.50 OT:$47.25 : (Base Pay): $1,260 (OT Pay):$283.50 Total: $1543.50 x 3 = Base:$3,780 OT: $850 Total: $4,630
 # Mei's (E103) pay: 32 hrs: $28/hr : $896 x 3 = $2,688
-# TODO: fix weekly_pay() so it follows the handbook rule word for word
-# TODO: fix the other line that compares `total` against 40 the same way
+
 def weekly_pay(hours, rate):
     if hours > 40:
         overtime_hours = hours - 40
