@@ -18,7 +18,7 @@ with open(DATA_FILE) as f:
 # TODO: wrap that value in int() so add_hours() adds a number
 # TODO: delete the print(repr(hours)) line once Rosa's total is right
 def add_hours(total, hours):
-    # print(repr(hours))
+    print(repr(hours))
     return total + hours
 
 
@@ -27,18 +27,22 @@ def weekly_hours(lines, emp_id):
     for row in lines[1:]:
         parts = row.split(",")
         if parts[0] == emp_id:
-            total = add_hours(total, hours(parts[3]))
+            total = add_hours(total,int(parts[3]))
     return total
 
 
 print("Rosa Alvarez, weekly hours:", weekly_hours(lines, "E101"))
 print()
 # Step 1, answer 1:
-#
+# Rosa's[E101] weekly hours add up to 40 total
 # Step 1, answer 2:
-#
+# To read a trace back:
+# First: You start with the bottom line, this is what tells you the type of error and the message
+# Second: we look at the line above which will indicate what line is causing the error
+# Lastly, we continue to scroll up to see if there are any additional error messages and continiue the process
 # Step 1, answer 3:
-#
+# The trace_back ended in the add_hours function,
+# line 30, in weekly_hours total = add_hours(total,parts[3]) was the bug.
 
 
 # Step 2: Trace the ZeroDivisionError Back to the Hand-Typed Staff List
